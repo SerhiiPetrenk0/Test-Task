@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ListGroup } from 'react-bootstrap';
+import { ListGroup, Container } from 'react-bootstrap';
+import "./ListProducts.css"
 
 export const ListProducts = () => {
 
@@ -14,13 +15,15 @@ export const ListProducts = () => {
         });
     };
     const renderItems = List.map((item, index) => (
-      <ListGroup.Item key={index}> {item.brand} </ListGroup.Item>
+      <ListGroup.Item className='item' key={index}> {item.brand} </ListGroup.Item>
     ));
   
     useEffect(() => {
       loadItems();
     }, []);
     return (
-        <ListGroup>{renderItems}</ListGroup>
+        <Container className="justify-content-md-center">
+          <ListGroup>{renderItems}</ListGroup>
+        </Container>
     );
 }
