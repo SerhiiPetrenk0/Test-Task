@@ -3,6 +3,9 @@
     transition: .3s;
     cursor: pointer;
 }
+.link {
+    text-decoration: none;
+}
 .item:hover {
     background-color: rgba(223, 223, 223, 0.356);
 }

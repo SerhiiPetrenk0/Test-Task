@@ -4,7 +4,6 @@ import { StarBar } from "./StarBar";
 
 export const Comment = (props) => {
     const { ListComment } = props
-    console.log(ListComment)
     return(
         <Card className="mt-2 w-100">
             <Card.Body>
