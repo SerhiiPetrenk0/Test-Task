@@ -6,7 +6,7 @@ export const Comment = (props) => {
     const { ListComment } = props
     console.log(ListComment)
     return(
-        <Card style={{ width: '100%' }}>
+        <Card className="mt-2 w-100">
             <Card.Body>
                 <Card.Text className="text-start">
                 {ListComment.discription}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Image, Card, Container, Row, Col } from "react-bootstrap";
 import { Comment } from "../components/Commetn";
-
+import { PostForm } from "../components/PostForm";
 const ListComment = [
     {
         id: 1,
@@ -18,21 +18,6 @@ const ListComment = [
         discription: "Some quick example text to build on the card title and make up the bulk of the card's content.",
         stars: 4,
     },
-    {
-        id: 4,
-        discription: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-        stars: 1,
-    },
-    {
-        id: 5,
-        discription: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-        stars: 3,
-    },
-    {
-        id: 6,
-        discription: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-        stars: 2,
-    },
 ]
 
 export const ItemProducts = (props) => {
@@ -41,9 +26,9 @@ export const ItemProducts = (props) => {
     const renderComment = ListComment.map(item => <Comment ListComment={item} />)
     return(
         <Container className="mt-5">
-            <Row>
-                <Col>
-                    <Image src={item.img} className="rounded-3" alt="***" />
+            <Row className="flex-column flex-lg-row">
+                <Col className="d-flex d-lg-block justify-content-center">
+                    <Image src={item.img} className="mh-100 mw-100" alt="***" />
                 </Col>
                 <Col>
                     <Card style={{ width: '100%' }}>
@@ -55,6 +40,7 @@ export const ItemProducts = (props) => {
                         {renderComment}
                     </Card.Body>
                     </Card>
+                    <PostForm />
                 </Col>
             </Row>
         </Container>

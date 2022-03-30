@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ListProducts } from "./screens/ListProducts/ListProducts"
 import { ItemProducts } from './screens/ItemProducts/ItemProducts';
-import { PostForm } from './screens/components/PostForm';
 const item = {
 
   "in_potential_products": false,
@@ -35,9 +34,8 @@ const item = {
 function App() {
   return (
     <div className="App">
-    <PostForm />
      {/* <ItemProducts item={item} />  */}
-     {/* <ListProducts />  */}
+     <ListProducts /> 
     </div>
   );
 }

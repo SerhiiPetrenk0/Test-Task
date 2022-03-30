@@ -43,13 +43,15 @@ export const PostForm = () => {
             body: JSON.stringify(formValue)
         })
         .then((response) => response.json())
-        .then((result) => console.log(result))
+        .then((result) => { result.result.push(formValue); console.log(result.result) })
+
+
         
     }
     
 
     return(
-        <Container>
+        <Container className="mt-5 mb-4">
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                     {stars.map((_, index) => {
@@ -70,7 +72,7 @@ export const PostForm = () => {
                     })}
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Example textarea</Form.Label>
+                    <Form.Label>comment</Form.Label>
                     <Form.Control as="textarea" rows={3} value={formValue.coments} onChange={event => handleTextarea(event.target.value)} />
                 </Form.Group>
                   <Button variant="primary" type="submit">

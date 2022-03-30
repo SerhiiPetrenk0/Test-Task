@@ -4,5 +4,8 @@
     cursor: pointer;
 }
 .item:hover {
-    background-color: gray;
+    background-color: rgba(223, 223, 223, 0.356);
+}
+.item-img {
+    height: 150px;
 }
