@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, Card, Container, Row, Col } from "react-bootstrap";
+import { Card, Container, Row, Col } from "react-bootstrap";
 import { Comment } from "../components/Commetn";
 import { PostForm } from "../components/PostForm";
 import { useParams } from "react-router-dom";
@@ -35,14 +35,17 @@ export const ItemProducts = (props) => {
         chooseProduct()
     },[])
 
+    // пофіксити проблему з картинкою на низькому розширенні
     
     const renderComment = ListComment.map(item => <Comment key={item.id} ListComment={item} />)
     return(
         <Container className="mt-5">
             {itemProduct && 
-                <Row className="flex-column flex-lg-row">
-                    <Col className="d-flex justify-content-center bg-primary"  style={{ height: '600px' }}>
-                        <Image src={itemProduct.img} className="mh-100" alt="***" />
+                <Row className="flex-column flex-lg-row justify-content-between">
+                    <Col lg='6' className="d-flex justify-content-center">
+                        <Card className="d-block" style={{ width: '30rem', height:'30rem' }}>
+                            <Card.Img className="mh-100 mw-100 p-2" style={{ objectFit: 'contain' }} src={itemProduct.img} />
+                        </Card>
                     </Col>
                     <Col>
                         <Card style={{ width: '100%' }}>

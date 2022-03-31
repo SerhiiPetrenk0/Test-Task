@@ -43,7 +43,7 @@ export const PostForm = () => {
             body: JSON.stringify(formValue)
         })
         .then((response) => response.json())
-        .then((result) => { result.result.push(formValue); console.log(result.result) })
+        .then((result) =>  result.result.push(formValue))
 
 
         
