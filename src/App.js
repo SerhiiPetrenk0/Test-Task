@@ -1,17 +1,15 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { CustomRouter } from "./router/Router"
-import { BrowserRouter } from "react-router-dom";
+import { CustomRouter } from './components/router/Router';
+import { BrowserRouter } from 'react-router-dom';
 
 
-function App() {
-  return (
+const App = () => (
     <BrowserRouter>
-      <div className="App">
+      <div>
       <CustomRouter />
       </div>
     </BrowserRouter>
-  );
-}
+  )
 
-export default App;
+
+export default App
