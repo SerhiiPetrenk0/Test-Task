@@ -4,8 +4,8 @@ import { StarBar } from './StarBar';
 import { StyledCard } from '../../styled/components/Comment';
 
 export const Comment = props => {
-    const { ListComment } = props
-    return(
+    const { ListComment } = props;
+    return (
         <StyledCard>
             <Card.Body>
                 <Card.Text>
@@ -17,4 +17,4 @@ export const Comment = props => {
             </Card.Body>
         </StyledCard>
     );
-}
+};

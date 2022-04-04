@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-import { getProductsAPI } from '../api'
+import { getProductsAPI } from '../api';
 import * as Styled from '../styled/ListProducts';
 
 export const ListProducts = () => {
@@ -24,7 +24,7 @@ export const ListProducts = () => {
     ));
 
     useEffect(() => {
-      getProductsAPI(setList)
+      getProductsAPI(setList);
     }, []);
 
     return (
@@ -34,4 +34,4 @@ export const ListProducts = () => {
           </Styled.Row>
         </Container>
     );
-}
+};

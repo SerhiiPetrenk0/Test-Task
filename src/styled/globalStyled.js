@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     *,
     ::after,
     ::before {
@@ -21,4 +21,17 @@ const GlobalStyle = createGlobalStyle`
             monospace;
     }
 `;
-export default GlobalStyle;
+export const devices = {
+    XSmall: '(max-width: 575.98px)',
+    Small: '(min-width: 576px)',
+    Medium: '(min-width: 768px)',
+    Large: '(min-width: 992px)',
+    ELarge: '(min-width: 1200px)',
+    EElarge: '(min-width: 1400px)'
+  };
+export const colors = {
+    cardSubtitle: '#323232',
+    link: '#000000',
+    starActive: '#FFBA5A',
+    starDisable: '#a9a9a9'
+};

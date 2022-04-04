@@ -1,5 +1,6 @@
-import styled from 'styled-components'
-import { Col, Card, Row } from 'react-bootstrap'
+import styled from 'styled-components';
+import { Col, Card, Row } from 'react-bootstrap';
+import { colors } from './globalStyled';
 import { Link } from 'react-router-dom';
 
 const StyledCol = styled(Col)`
@@ -8,7 +9,7 @@ const StyledCol = styled(Col)`
 `;
 const StyledLink = styled(Link)`
     text-decoration: none;
-    color: black
+    color: ${colors.link}
 `;
 const StyledCard = styled(Card)`
     width: 100%;
@@ -33,7 +34,7 @@ const CardTitle = styled(Card.Title)`
 `;
 const CardSubtitle = styled(Card.Subtitle)`
     margin-top: 20px;
-    color: #323232
+    color: ${colors.cardSubtitle}
 `;
 const CardText = styled(Card.Text)`
     margin-top: 20px;
@@ -54,4 +55,4 @@ export {
     CardSubtitle,
     CardText,
     StyledRow as Row
-}
+};

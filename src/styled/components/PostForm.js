@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { BsStarFill } from 'react-icons/bs';
-import { Container, Form } from 'react-bootstrap'
+import { Container, Form } from 'react-bootstrap';
 
 export const StyledContainer = styled(Container)`
     margin-top: 25px;

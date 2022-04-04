@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Container, Card, Col } from 'react-bootstrap'
+import styled from 'styled-components';
+import { Container, Card, Col } from 'react-bootstrap';
 
 const StyledContainer = styled(Container)`
     margin-top: 50px
@@ -30,4 +30,4 @@ export {
     CImg, 
     CardImg, 
     StyledCard as Card
-}
+};

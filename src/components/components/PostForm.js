@@ -1,33 +1,29 @@
 import React , { useState } from 'react';
 import { Form , Button } from 'react-bootstrap';
 import { postCommentAPI } from '../../api';
+import { colors } from '../../styled/globalStyled';
 import { 
     StyledContainer,
     StyledFormGroup,
     StyledBsStarFill
 } from '../../styled/components/PostForm';
 
-const colors = {
-    orange: '#FFBA5A',
-    grey: '#a9a9a9'
-};
-
 export const PostForm = () => {
-    const [formValue, setFormValue ] = useState(
+    const [formValue, setFormValue] = useState(
         {
             id: 'B0721KZEEE',
             rating: '',
             coments: ''
         }
-    )
+    );
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
-    const stars = Array(5).fill(0)
+    const stars = Array(5).fill(0);
   
     const handleClick = value => {
-      setCurrentValue(value)
-      setFormValue({...formValue, rating:value})
-    }
+      setCurrentValue(value);
+      setFormValue({...formValue, rating:value});
+    };
   
     const handleMouseOver = newHoverValue => setHoverValue(newHoverValue);
 
@@ -36,9 +32,9 @@ export const PostForm = () => {
     const handleTextarea = val => setFormValue({...formValue, coments:val});
 
     const handleSubmit = event => {
-        event.preventDefault()
-        postCommentAPI(formValue)
-    }
+        event.preventDefault();
+        postCommentAPI(formValue);
+    };
 
     return(
         <StyledContainer>
@@ -51,7 +47,7 @@ export const PostForm = () => {
                             onClick={() => handleClick(index + 1)}
                             onMouseOver={() => handleMouseOver(index + 1)}
                             onMouseLeave={handleMouseLeave}
-                            color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+                            color={(hoverValue || currentValue) > index ? colors.starActive : colors.starDisable}
                             />
                     ))}
                 </StyledFormGroup>
@@ -65,4 +61,4 @@ export const PostForm = () => {
             </Form>
         </StyledContainer>
     );
-}
+};

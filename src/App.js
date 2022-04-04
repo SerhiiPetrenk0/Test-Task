@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { CustomRouter } from './router/Router';
+import { CustomRouter } from './Router';
 import { BrowserRouter } from 'react-router-dom';
 
 const App = () => (
@@ -10,4 +10,4 @@ const App = () => (
     </BrowserRouter>
   );
 
-export default App
+export default App;
