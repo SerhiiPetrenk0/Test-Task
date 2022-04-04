@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { StarBar } from './StarBar';
-import { StyledCard } from '../../../styled/screens/components/Comment';
+import { StyledCard } from '../../styled/components/Comment';
 
 export const Comment = props => {
     const { ListComment } = props
@@ -16,5 +16,5 @@ export const Comment = props => {
                 </Card.Subtitle>
             </Card.Body>
         </StyledCard>
-    )
+    );
 }

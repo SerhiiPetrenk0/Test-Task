@@ -1,16 +1,15 @@
 import React , { useState } from 'react';
 import { Form , Button } from 'react-bootstrap';
-import { postCommentAPI } from '../../../api';
+import { postCommentAPI } from '../../api';
 import { 
     StyledContainer,
     StyledFormGroup,
     StyledBsStarFill
-} from '../../../styled/screens/components/PostForm';
+} from '../../styled/components/PostForm';
 
 const colors = {
     orange: '#FFBA5A',
     grey: '#a9a9a9'
-    
 };
 
 export const PostForm = () => {
@@ -65,5 +64,5 @@ export const PostForm = () => {
                   </Button>
             </Form>
         </StyledContainer>
-    )
+    );
 }

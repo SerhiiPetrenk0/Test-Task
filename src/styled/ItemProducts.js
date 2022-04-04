@@ -1,25 +1,33 @@
 import styled from 'styled-components'
 import { Container, Card, Col } from 'react-bootstrap'
 
-export const StyledContainer = styled(Container)`
+const StyledContainer = styled(Container)`
     margin-top: 50px
 `;
-export const StyledColImg = styled(Col)`
+const ColImg = styled(Col)`
     display: flex;
     justify-content: center
 `;
-export const StyledCImg = styled(Card)`
+const CImg = styled(Card)`
     display: block;
     justify-content: center;
     width: 30rem;
     height: 30rem;
 `;
-export const StyledCardImg = styled(Card.Img)`
+const CardImg = styled(Card.Img)`
     object-fit: contain;
     padding: 10px;
     max-width: 100%;
     max-height: 100%;
 `;
-export const StyledCard = styled(Card)`
+const StyledCard = styled(Card)`
     width: 100%
 `;
+
+export { 
+    StyledContainer as Container, 
+    ColImg, 
+    CImg, 
+    CardImg, 
+    StyledCard as Card
+}

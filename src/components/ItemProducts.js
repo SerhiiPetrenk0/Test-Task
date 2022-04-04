@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
-import { Comment } from '../components/Comment';
-import { PostForm } from '../components/PostForm';
+import { PostForm, Comment } from './'
 import { useParams } from 'react-router-dom';
-import { Product } from '../../redux/Redux-store'; // Тестовий варіант >>> данні які будуть завантажуватись з REDUX
-import { 
-    StyledContainer,
-    StyledColImg,
-    StyledCImg,
-    StyledCardImg,
-    StyledCard,
- } from '../../../styled/screens/ItemProducts/ItemProducts';
+import { Product } from '../redux/Redux-store'; // Тестовий варіант >>> данні які будуть завантажуватись з REDUX
+import * as Styled from '../styled/ItemProducts';
  
 const ListComment = [
     {
@@ -30,7 +23,7 @@ const ListComment = [
     },
 ]
 
-export const ItemProducts = (props) => {
+export const ItemProducts = props => {
     const [ itemProduct, setItemProduct ] = useState([])
     const linkProduct = useParams()
 
@@ -43,19 +36,19 @@ export const ItemProducts = (props) => {
 
     useEffect(() => {
         chooseProduct();
-    },[]);
+    });
     
     return(
-        <StyledContainer>
+        <Styled.Container>
             {itemProduct && 
-                <Row /*className="flex-column flex-lg-row justify-content-between"*/>
-                    <StyledColImg lg="6">
-                        <StyledCImg>
-                            <StyledCardImg src={itemProduct.img} />
-                        </StyledCImg>
-                    </StyledColImg>
+                <Row>
+                    <Styled.ColImg lg="6">
+                        <Styled.CImg>
+                            <Styled.CardImg src={itemProduct.img} />
+                        </Styled.CImg>
+                    </Styled.ColImg>
                     <Col>
-                        <StyledCard>
+                        <Styled.Card>
                         <Card.Body>
                             <Card.Title>{itemProduct.brand}</Card.Title>
                             <Card.Text>
@@ -63,11 +56,11 @@ export const ItemProducts = (props) => {
                             </Card.Text>
                             {renderComment}
                         </Card.Body>
-                        </StyledCard>
+                        </Styled.Card>
                         <PostForm />
                     </Col>
                 </Row>
             }
-        </StyledContainer>
-    )
+        </Styled.Container>
+    );
 }
