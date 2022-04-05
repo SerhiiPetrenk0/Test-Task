@@ -6,7 +6,7 @@ import {
     StyledContainer,
     StyledFormGroup,
     StyledBsStarFill
-} from '../../styled/components/PostForm';
+} from '../../styled/other/PostForm';
 
 export const PostForm = () => {
     const [formValue, setFormValue] = useState(

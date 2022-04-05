@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-import { getProductsAPI } from '../api';
 import * as Styled from '../styled/ListProducts';
+import { loadProduct } from '../redux/redusers/productsReduser';
+import { useSelector, useDispatch } from 'react-redux';
 
 export const ListProducts = () => {
     const [List, setList] = useState([]);
+    const dispatch = useDispatch();
+
+    const store = useSelector(store => store.products);
 
     const renderItems = List.map(item => (
           <Styled.Col key={item.asin} lg="3" md="4" sm="6">
@@ -22,10 +26,11 @@ export const ListProducts = () => {
           </Styled.Link>
           </Styled.Col>
     ));
+    const checkStore = () => store.length === 0 ? dispatch(loadProduct()) : setList(store);
 
     useEffect(() => {
-      getProductsAPI(setList);
-    }, []);
+      checkStore();
+    });
 
     return (
         <Container>
