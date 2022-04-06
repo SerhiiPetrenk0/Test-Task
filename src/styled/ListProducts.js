@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Col, Card, Row } from 'react-bootstrap';
+import { Col, Card, Row, Spinner } from 'react-bootstrap';
 import { colors } from './globalStyled';
 import { Link } from 'react-router-dom';
 
@@ -44,6 +44,13 @@ const CardText = styled(Card.Text)`
 const StyledRow = styled(Row)`
     justify-content: space-evenly
 `;
+const StyledSpinner = styled(Spinner)`
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    width: 100px;
+    height: 100px;
+`;
 
 export {
     StyledCol as Col,
@@ -54,5 +61,6 @@ export {
     CardTitle,
     CardSubtitle,
     CardText,
-    StyledRow as Row
+    StyledRow as Row,
+    StyledSpinner as Spinner
 };

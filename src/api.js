@@ -7,6 +7,14 @@ export const getProductsAPI = async () => {
   return data.products;
 };
 
+export const getCommentsAPI = async (link) => {
+  const productsURL = `${URL}comments`;
+  const request = await fetch(productsURL);
+  const data = await request.json();
+  const chooseItem = data.result.find(item => item.asin === link);
+  console.log(chooseItem)
+  return chooseItem;
+};
 
 export const postCommentAPI = formValue => {
     const commentURL = `${URL}comments`;

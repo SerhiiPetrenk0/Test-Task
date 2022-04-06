@@ -8,7 +8,8 @@ export const ListProducts = () => {
     const [List, setList] = useState([]);
     const dispatch = useDispatch();
 
-    const store = useSelector(store => store.products);
+    const store = useSelector(store => store.product.products);
+    const status = useSelector(store => store.product.status);
 
     const renderItems = List.map(item => (
           <Styled.Col key={item.asin} lg="3" md="4" sm="6">
@@ -33,10 +34,17 @@ export const ListProducts = () => {
     });
 
     return (
+      <>
+        {
+        status ? 
+        <Styled.Spinner animation="border" /> 
+        :
         <Container>
           <Styled.Row>
             {renderItems}
           </Styled.Row>
         </Container>
+        }
+      </>
     );
 };

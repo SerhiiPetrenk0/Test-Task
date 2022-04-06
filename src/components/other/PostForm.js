@@ -11,9 +11,8 @@ import {
 export const PostForm = () => {
     const [formValue, setFormValue] = useState(
         {
-            id: 'B0721KZEEE',
             rating: '',
-            coments: ''
+            comments: '',
         }
     );
     const [currentValue, setCurrentValue] = useState(0);
