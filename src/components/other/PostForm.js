@@ -1,12 +1,13 @@
 import React , { useState } from 'react';
 import { Form , Button } from 'react-bootstrap';
-import { postCommentAPI } from '../../api';
+import { formComment } from '../../redux/redusers/productsReduser';
 import { colors } from '../../styled/globalStyled';
 import { 
     StyledContainer,
     StyledFormGroup,
     StyledBsStarFill
 } from '../../styled/other/PostForm';
+import { useDispatch } from 'react-redux';
 
 export const PostForm = () => {
     const [formValue, setFormValue] = useState(
@@ -18,22 +19,25 @@ export const PostForm = () => {
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0);
-  
+    const dispath = useDispatch();
     const handleClick = value => {
       setCurrentValue(value);
-      setFormValue({...formValue, rating:value});
+      setFormValue({...formValue, rating: value.toString()});
     };
   
     const handleMouseOver = newHoverValue => setHoverValue(newHoverValue);
 
     const handleMouseLeave = () => setHoverValue(undefined);
 
-    const handleTextarea = val => setFormValue({...formValue, coments:val});
+    const handleTextarea = val => setFormValue({...formValue, comments:val});
 
     const handleSubmit = event => {
         event.preventDefault();
-        postCommentAPI(formValue);
+        dispath(formComment(formValue));
+        setFormValue({ ...formValue, comments:''});
+        setCurrentValue(0);
     };
+
 
     return(
         <StyledContainer>
@@ -52,7 +56,7 @@ export const PostForm = () => {
                 </StyledFormGroup>
                 <StyledFormGroup controlId="exampleForm.ControlTextarea1">
                     <Form.Label>comment</Form.Label>
-                    <Form.Control as="textarea" rows={3} value={formValue.coments} onChange={event => handleTextarea(event.target.value)} />
+                    <Form.Control as="textarea" rows={3} value={formValue.comments} onChange={event => handleTextarea(event.target.value)} />
                 </StyledFormGroup>
                   <Button variant="primary" type="submit">
                         Submit

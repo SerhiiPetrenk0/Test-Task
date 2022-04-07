@@ -23,19 +23,12 @@ const CardImg = styled(Card.Img)`
 const StyledCard = styled(Card)`
     width: 100%
 `;
-const StyledSpinner = styled.div`
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 30px;
-`;
+
 
 export { 
     StyledContainer as Container, 
     ColImg, 
     CImg, 
     CardImg, 
-    StyledCard as Card,
-    StyledSpinner as Spinner
+    StyledCard as Card
 };

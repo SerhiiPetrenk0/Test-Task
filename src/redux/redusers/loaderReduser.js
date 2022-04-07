@@ -17,7 +17,7 @@ export function loaderReduser(state = initialStore, action) {
             return {
                 ...state,
                 status: true
-            }
+            };
         }
         default:
             return state;

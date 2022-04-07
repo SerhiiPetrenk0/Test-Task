@@ -1,13 +1,18 @@
 export const GET_PRODUCTS = 'productsReduser/GET_PRODUCTS';
 export const LOAD_PRODUCT = 'productsReduser/LOAD_PRODUCT';
+
 export const GET_COMMENTS = 'productsReduser/GET_COMMENTS';
+export const LOAD_COMMENTS = 'productsReduser/LOAD_COMMENTS';
+
+export const FORM_COMMENTS = 'productsReduser/FORM_COMMENTS';
+export const POST_COMMENTS = 'productsReduser/POST_COMMENTS';
 
 const initialStore = {
     products: [],
     comments: []
 };
 
-export function productsReduser(state = initialStore, action) {
+export const productsReduser = (state = initialStore, action) => {
     switch (action.type) {
         case GET_PRODUCTS: {
             return {
@@ -24,6 +29,15 @@ export function productsReduser(state = initialStore, action) {
                 comments: copyComments
             };
         }
+        case POST_COMMENTS: {
+            const copyComments = Object.assign([], state.comments);
+            copyComments.body.push(action.payload);
+            return {
+                ...state,
+                comments: copyComments
+            };
+        }
+
         default:
             return state;
     };
@@ -41,14 +55,26 @@ export const getCommentsAction = data => {
         payload: data
     };
 };
+export const postCommentAction = data => {
+    return {
+        type: POST_COMMENTS,
+        payload: data
+    }; 
+};
 export const loadProduct = () => {
     return {
         type: LOAD_PRODUCT
     };
 };
-export const testAction = data => {
+export const loadComment = data => {
     return {
-        type: "GET_COMME",
+        type: LOAD_COMMENTS,
+        payload: data
+    };
+};
+export const formComment = data => {
+    return {
+        type: FORM_COMMENTS,
         payload: data
     };
 };
