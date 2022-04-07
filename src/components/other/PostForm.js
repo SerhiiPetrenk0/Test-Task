@@ -7,7 +7,8 @@ import {
     StyledFormGroup,
     StyledBsStarFill
 } from '../../styled/other/PostForm';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { LogInForm } from './LogInForm';
 
 export const PostForm = () => {
     const [formValue, setFormValue] = useState(
@@ -24,44 +25,57 @@ export const PostForm = () => {
       setCurrentValue(value);
       setFormValue({...formValue, rating: value.toString()});
     };
-  
+    const userInfo = useSelector(store => store.userInfo.userInfo)
+    console.log(!!userInfo.email) // Зачіпка
     const handleMouseOver = newHoverValue => setHoverValue(newHoverValue);
 
     const handleMouseLeave = () => setHoverValue(undefined);
 
     const handleTextarea = val => setFormValue({...formValue, comments:val});
 
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    const test = false
     const handleSubmit = event => {
         event.preventDefault();
-        dispath(formComment(formValue));
-        setFormValue({ ...formValue, comments:''});
-        setCurrentValue(0);
+        if (test) {
+            dispath(formComment(formValue));
+            setFormValue({ ...formValue, comments:''});
+            setCurrentValue(0);
+        }else {
+            handleShow()
+        }
     };
 
 
-    return(
-        <StyledContainer>
-            <Form onSubmit={handleSubmit}>
-                <StyledFormGroup controlId="exampleForm.ControlInput1">
-                    {stars.map((_, index) => (
-                            <StyledBsStarFill
-                            key={index}
-                            size={24}
-                            onClick={() => handleClick(index + 1)}
-                            onMouseOver={() => handleMouseOver(index + 1)}
-                            onMouseLeave={handleMouseLeave}
-                            color={(hoverValue || currentValue) > index ? colors.starActive : colors.starDisable}
-                            />
-                    ))}
-                </StyledFormGroup>
-                <StyledFormGroup controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>comment</Form.Label>
-                    <Form.Control as="textarea" rows={3} value={formValue.comments} onChange={event => handleTextarea(event.target.value)} />
-                </StyledFormGroup>
-                  <Button variant="primary" type="submit">
-                        Submit
-                  </Button>
-            </Form>
-        </StyledContainer>
+    return(<>
+            <LogInForm show={show} handleClose={handleClose} />
+            <StyledContainer>
+                <Form onSubmit={handleSubmit}>
+                    <StyledFormGroup controlId="exampleForm.ControlInput1">
+                        {stars.map((_, index) => (
+                                <StyledBsStarFill
+                                key={index}
+                                size={24}
+                                onClick={() => handleClick(index + 1)}
+                                onMouseOver={() => handleMouseOver(index + 1)}
+                                onMouseLeave={handleMouseLeave}
+                                color={(hoverValue || currentValue) > index ? colors.starActive : colors.starDisable}
+                                />
+                        ))}
+                    </StyledFormGroup>
+                    <StyledFormGroup controlId="exampleForm.ControlTextarea1">
+                        <Form.Label>comment</Form.Label>
+                        <Form.Control as="textarea" rows={3} value={formValue.comments} onChange={event => handleTextarea(event.target.value)} />
+                    </StyledFormGroup>
+                    <Button variant="primary" type="submit">
+                            Submit
+                    </Button>
+                </Form>
+            </StyledContainer>
+        </>
     );
 };

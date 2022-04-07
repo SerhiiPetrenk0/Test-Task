@@ -6,6 +6,7 @@ import * as Styled from '../styled/ItemProducts';
 import { PageSpinner } from '../styled/globalStyled';
 import { loadProduct, loadComment } from '../redux/redusers/productsReduser';
 import { useSelector, useDispatch } from 'react-redux';
+import { LogInForm } from './other/LogInForm'
 
 export const ItemProducts = props => {
     const [ itemProduct, setItemProduct ] = useState([]);
