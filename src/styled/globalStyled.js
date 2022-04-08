@@ -35,7 +35,9 @@ export const colors = {
     cardSubtitle: '#323232',
     link: '#000000',
     starActive: '#FFBA5A',
-    starDisable: '#a9a9a9'
+    starDisable: '#a9a9a9',
+    invaidForm: '#BC0300',
+    validForm: '#00BC10'
 };
 export const PageSpinner = styled(Spinner)`
     position: absolute;

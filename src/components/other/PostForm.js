@@ -26,7 +26,6 @@ export const PostForm = () => {
       setFormValue({...formValue, rating: value.toString()});
     };
     const userInfo = useSelector(store => store.userInfo.userInfo)
-    console.log(!!userInfo.email) // Зачіпка
     const handleMouseOver = newHoverValue => setHoverValue(newHoverValue);
 
     const handleMouseLeave = () => setHoverValue(undefined);
@@ -38,10 +37,10 @@ export const PostForm = () => {
     const handleShow = () => setShow(true);
 
 
-    const test = false
+    //const test = false
     const handleSubmit = event => {
         event.preventDefault();
-        if (test) {
+        if (!!userInfo.email) {
             dispath(formComment(formValue));
             setFormValue({ ...formValue, comments:''});
             setCurrentValue(0);
