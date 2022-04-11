@@ -23,7 +23,7 @@ export const productsReduser = (state = initialStore, action) => {
             };
         }
         case GET_COMMENTS: {
-            const copyComments = Object.assign({}, action.payload)
+            const copyComments = Object.assign({}, action.payload);
             return {
                 ...state,
                 comments: copyComments

@@ -1,5 +1,5 @@
 export const FILL_USER = 'userInfoReduser/FILL_USER';
-export const POST_USER = 'userInfoReduser/POST_USER'
+export const POST_USER = 'userInfoReduser/POST_USER';
 
 const initialStore = {
     userInfo: {}
@@ -8,7 +8,7 @@ const initialStore = {
 export function userInfoReduser(state = initialStore, action) {
     switch (action.type) {
         case FILL_USER: {
-            const copyUserInfo = Object.assign({}, action.payload)
+            const copyUserInfo = Object.assign({}, action.payload);
             return {
                 ...state,
                 userInfo: copyUserInfo
@@ -31,4 +31,4 @@ export const postUserInfoAction = data => {
         type: POST_USER,
         payload: data
     };
-}
+};
