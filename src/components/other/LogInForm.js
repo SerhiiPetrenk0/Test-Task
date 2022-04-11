@@ -28,7 +28,7 @@ export const LogInForm = props => {
       <>
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal title</Modal.Title>
+            <Modal.Title>Registration</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form onSubmit={formik.handleSubmit}>
