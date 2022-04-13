@@ -1,18 +1,24 @@
-export const GET_PRODUCTS = 'productsReduser/GET_PRODUCTS';
-export const LOAD_PRODUCT = 'productsReduser/LOAD_PRODUCT';
+import { call, put } from 'redux-saga/effects';
+import { getProductsAPI, getCommentsAPI, postCommentAPI } from '../../api';
+import {loaderHide, loaderShow} from './loaderDuck';
 
-export const GET_COMMENTS = 'productsReduser/GET_COMMENTS';
-export const LOAD_COMMENTS = 'productsReduser/LOAD_COMMENTS';
+// Actions
+export const GET_PRODUCTS = 'productsReducers/GET_PRODUCTS';
+export const LOAD_PRODUCT = 'productsReducers/LOAD_PRODUCT';
 
-export const FORM_COMMENTS = 'productsReduser/FORM_COMMENTS';
-export const POST_COMMENTS = 'productsReduser/POST_COMMENTS';
+export const GET_COMMENTS = 'productsReducers/GET_COMMENTS';
+export const LOAD_COMMENTS = 'productsReducers/LOAD_COMMENTS';
+
+export const FORM_COMMENTS = 'productsReducers/FORM_COMMENTS';
+export const POST_COMMENTS = 'productsReducers/POST_COMMENTS';
 
 const initialStore = {
     products: [],
     comments: []
 };
 
-export const productsReduser = (state = initialStore, action) => {
+// Reducer
+export const productsReducers = (state = initialStore, action) => {
     switch (action.type) {
         case GET_PRODUCTS: {
             return {
@@ -43,6 +49,7 @@ export const productsReduser = (state = initialStore, action) => {
     };
 };
 
+// Action Creators
 export const getProductsAction = data => {
     return {
         type: GET_PRODUCTS,
@@ -77,4 +84,20 @@ export const formComment = data => {
         type: FORM_COMMENTS,
         payload: data
     };
+};
+
+// Saga Worker
+export function* workerSagaGETProducts() { 
+    const product = yield call(getProductsAPI);
+    yield put(getProductsAction(product));
+};
+export function* workerSagaGETComments(action) {
+    yield put(loaderHide());
+    const comment = yield call(getCommentsAPI, action.payload);
+    yield put(getCommentsAction(comment));
+    yield put(loaderShow());
+};
+export function* workerSagaPOSTComments(action) {
+    yield call(postCommentAPI, action.payload);
+    yield put(postCommentAction(action.payload));
 };

@@ -4,7 +4,7 @@ import { Form, Button, Modal } from 'react-bootstrap';
 import { useDispatch  } from 'react-redux';
 import { useFormik } from 'formik';
 import { StyledValidEmail } from '../../styled/other/LogInForm';
-import { fillUser } from '../../redux/redusers/userInfoReduser';
+import { fillUser } from '../../redux/ducks/userInfoDuck';
 
 export const LogInForm = props => {
     const { show, handleClose } = props;

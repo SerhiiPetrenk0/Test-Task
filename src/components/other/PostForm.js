@@ -1,56 +1,50 @@
 import React , { useState } from 'react';
 import { Form , Button } from 'react-bootstrap';
-import { formComment } from '../../redux/redusers/productsReduser';
-import { colors } from '../../styled/globalStyled';
-import { 
-    StyledContainer,
-    StyledFormGroup,
-    StyledBsStarFill
-} from '../../styled/other/PostForm';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { LogInForm } from './LogInForm';
 
+import { formComment } from '../../redux/ducks/productsDuck';
+import { colors } from '../../styled/globalStyled';
+import { StyledContainer, StyledFormGroup, StyledBsStarFill } from '../../styled/other/PostForm';
+
 export const PostForm = () => {
+    const [currentValue, setCurrentValue] = useState(0);
+    const [hoverValue, setHoverValue] = useState(undefined);
+    const [show, setShow] = useState(false);
     const [formValue, setFormValue] = useState(
         {
             rating: '',
             comments: '',
         }
     );
-    const [currentValue, setCurrentValue] = useState(0);
-    const [hoverValue, setHoverValue] = useState(undefined);
+
     const stars = Array(5).fill(0);
-    const dispath = useDispatch();
-    const handleClick = value => {
-      setCurrentValue(value);
-      setFormValue({...formValue, rating: value.toString()});
-    };
-    const userInfo = useSelector(store => store.userInfo.userInfo)
+    const dispatch = useDispatch();
+    const userInfo = useSelector(store => store.userInfo.userInfo);
+
     const handleMouseOver = newHoverValue => setHoverValue(newHoverValue);
-
     const handleMouseLeave = () => setHoverValue(undefined);
-
     const handleTextarea = val => setFormValue({...formValue, comments:val});
-
-    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-
-    //const test = false
     const handleSubmit = event => {
         event.preventDefault();
         if (!!userInfo.email) {
-            dispath(formComment(formValue));
+            dispatch(formComment(formValue));
             setFormValue({ ...formValue, comments:''});
             setCurrentValue(0);
-        }else {
+        } else {
             handleShow()
         }
     };
+    const handleClick = value => {
+        setCurrentValue(value);
+        setFormValue({...formValue, rating: value.toString()});
+    };
 
-
-    return(<>
+    return (
+        <>
             <LogInForm show={show} handleClose={handleClose} />
             <StyledContainer>
                 <Form onSubmit={handleSubmit}>

@@ -1,11 +1,16 @@
-export const FILL_USER = 'userInfoReduser/FILL_USER';
-export const POST_USER = 'userInfoReduser/POST_USER';
+import { call, put } from 'redux-saga/effects';
+import { postUserInfoAPI } from '../../api';
+
+// Actions
+export const FILL_USER = 'userInfoReducers/FILL_USER';
+export const POST_USER = 'userInfoReducers/POST_USER';
 
 const initialStore = {
     userInfo: {}
 };
 
-export function userInfoReduser(state = initialStore, action) {
+// Reducer
+export function userInfoReducers(state = initialStore, action) {
     switch (action.type) {
         case FILL_USER: {
             const copyUserInfo = Object.assign({}, action.payload);
@@ -19,6 +24,7 @@ export function userInfoReduser(state = initialStore, action) {
     };
 };
 
+// Action Creators
 export const fillUser = data => {
     return {
         type: FILL_USER,
@@ -31,4 +37,10 @@ export const postUserInfoAction = data => {
         type: POST_USER,
         payload: data
     };
+};
+
+// Saga Worker
+export function* workerSagaFillUser(action) {
+    yield call(postUserInfoAPI, action.payload);
+    yield put(postUserInfoAction(action.payload));
 };

@@ -24,7 +24,6 @@ const StyledCard = styled(Card)`
     width: 100%
 `;
 
-
 export { 
     StyledContainer as Container, 
     ColImg, 
