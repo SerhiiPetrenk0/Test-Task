@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
+import { Spinner } from 'react-bootstrap';
 
 export const GlobalStyle = createGlobalStyle`
     *,
@@ -33,5 +35,14 @@ export const colors = {
     cardSubtitle: '#323232',
     link: '#000000',
     starActive: '#FFBA5A',
-    starDisable: '#a9a9a9'
+    starDisable: '#a9a9a9',
+    invaidForm: '#BC0300',
+    validForm: '#00BC10'
 };
+export const PageSpinner = styled(Spinner)`
+    position: absolute;
+    left: 45%;
+    top: 45%;
+    width: 100px;
+    height: 100px;
+`;

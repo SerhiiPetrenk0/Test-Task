@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledBsStarFill, StyledStars } from '../../styled/components/StarBar';
+import { StyledBsStarFill, StyledStars } from '../../styled/other/StarBar';
 import { colors } from '../../styled/globalStyled';
 
 export const StarBar = props => {

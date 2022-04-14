@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { StarBar } from './StarBar';
-import { StyledCard } from '../../styled/components/Comment';
+import { StyledCard } from '../../styled/other/Comment';
 
 export const Comment = props => {
     const { ListComment } = props;
@@ -9,10 +9,10 @@ export const Comment = props => {
         <StyledCard>
             <Card.Body>
                 <Card.Text>
-                {ListComment.discription}
+                {ListComment.comments}
                 </Card.Text>
                 <Card.Subtitle>
-                <StarBar count={ListComment.stars} />
+                <StarBar count={ListComment.rating} />
                 </Card.Subtitle>
             </Card.Body>
         </StyledCard>
