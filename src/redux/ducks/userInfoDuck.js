@@ -43,4 +43,4 @@ export const postUserInfoAction = data => {
 export function* workerSagaFillUser(action) {
     yield call(postUserInfoAPI, action.payload);
     yield put(postUserInfoAction(action.payload));
-};
+}

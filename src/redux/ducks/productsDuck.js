@@ -56,29 +56,34 @@ export const getProductsAction = data => {
         payload: data
     };
 };
+
 export const getCommentsAction = data => {
     return {
         type: GET_COMMENTS,
         payload: data
     };
 };
+
 export const postCommentAction = data => {
     return {
         type: POST_COMMENTS,
         payload: data
     }; 
 };
+
 export const loadProduct = () => {
     return {
         type: LOAD_PRODUCT
     };
 };
+
 export const loadComment = data => {
     return {
         type: LOAD_COMMENTS,
         payload: data
     };
 };
+
 export const formComment = data => {
     return {
         type: FORM_COMMENTS,
@@ -90,14 +95,16 @@ export const formComment = data => {
 export function* workerSagaGETProducts() { 
     const product = yield call(getProductsAPI);
     yield put(getProductsAction(product));
-};
+}
+
 export function* workerSagaGETComments(action) {
     yield put(loaderHide());
     const comment = yield call(getCommentsAPI, action.payload);
     yield put(getCommentsAction(comment));
     yield put(loaderShow());
-};
+}
+
 export function* workerSagaPOSTComments(action) {
     yield call(postCommentAPI, action.payload);
     yield put(postCommentAction(action.payload));
-};
+}
