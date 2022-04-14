@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 import { StarBar } from './StarBar';
 import { StyledCard } from '../../styled/other/Comment';
 
-export const Comment = props => {
+export const Comment = (props: { ListComment: any; }) => {
     const { ListComment } = props;
     return (
         <StyledCard>

@@ -7,14 +7,14 @@ export const getProductsAPI = async () => {
   return data.products;
 };
 
-export const getCommentsAPI = async link => {
+export const getCommentsAPI = async (link: any) => {
   const productsURL = `${URL}comments`;
   const request = await fetch(productsURL);
   const data = await request.json();
-  return data.result.find(item => item.asin === link);
+  return data.result.find((item: { asin: any; }) => item.asin === link);
 };
 
-export const postCommentAPI = formValue => {
+export const postCommentAPI = (formValue: any) => {
   const commentURL = `${URL}comments`;
   fetch(commentURL, {
     method: 'POST',
@@ -25,7 +25,7 @@ export const postCommentAPI = formValue => {
     .then(result => result.result.push(formValue));
 };
 
-export const postUserInfoAPI = userInfo => {
+export const postUserInfoAPI = (userInfo: any) => {
   const commentURL = `${URL}user`;
   fetch(commentURL, {
     method: 'POST',

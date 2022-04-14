@@ -1,12 +1,12 @@
 // Actions
-export const LOADER_HIDE = 'loaderDuck/LOADER_HIDE';
-export const LOADER_SHOW = 'loaderDuck/LOADER_SHOW';
+export const LOADER_HIDE:string = 'loaderDuck/LOADER_HIDE';
+export const LOADER_SHOW:string = 'loaderDuck/LOADER_SHOW';
 
 const initialStore = {
     status: false
 };
 // Reducer
-export function loaderReducers(state = initialStore, action) {
+export function loaderReducers(state = initialStore, action: { type: any; }) {
     switch (action.type) {
         case LOADER_HIDE: {
             return {

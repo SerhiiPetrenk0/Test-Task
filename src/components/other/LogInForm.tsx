@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import { StyledValidEmail } from '../../styled/other/LogInForm';
 import { fillUser } from '../../redux/ducks/userInfoDuck';
 
-export const LogInForm = props => {
+export const LogInForm = (props: { show: any; handleClose: any; }) => {
     const { show, handleClose } = props;
     const dispatch = useDispatch();
     const formik = useFormik({

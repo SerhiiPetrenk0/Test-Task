@@ -3,7 +3,7 @@ import { FILL_USER } from './ducks/userInfoDuck';
 import {
     LOAD_PRODUCT, 
     LOAD_COMMENTS,
-    FORM_COMMENTS,
+    FORM_COMMENTS
 } from './ducks/productsDuck';
 import * as Worker from './ducks'
 

@@ -3,15 +3,16 @@ import { Container } from 'react-bootstrap';
 import * as Styled from '../styled/ListProducts';
 import { loadProduct } from '../redux/ducks/productsDuck';
 import { useSelector, useDispatch } from 'react-redux';
+import { TypeProduct } from '../interface';
 
 export const ListProducts = () => {
-    const [List, setList] = useState([]);
+    const [List, setList] = useState<TypeProduct[]>([]);
     const dispatch = useDispatch();
 
-    const store = useSelector(store => store.product.products);
-    const status = useSelector(store => store.product.status);
+    const store = useSelector((store:{product:{products:any[]}}) => store.product.products);
+    const status = useSelector((store:{loader:{status: boolean}}) => store.loader.status);
 
-    const renderItems = List.map(item => (
+    const renderItems = List.map((item: TypeProduct) => (
           <Styled.Col key={item.asin} lg="3" md="4" sm="6">
             <Styled.Link key={item.asin} to={`/Product/${item.asin}`}>
               <Styled.Card>
