@@ -5,18 +5,13 @@ import {
     LOAD_COMMENTS,
     FORM_COMMENTS,
 } from './ducks/productsDuck';
-import { 
-    workerSagaFillUser, 
-    workerSagaGETProducts, 
-    workerSagaGETComments, 
-    workerSagaPOSTComments
-} from './ducks';
+import * as Worker from './ducks'
 
 export function* watchSaga() {
-    yield takeLeading(LOAD_PRODUCT, workerSagaGETProducts);
-    yield takeLeading(LOAD_COMMENTS, workerSagaGETComments);
-    yield takeLeading(FORM_COMMENTS, workerSagaPOSTComments);
-    yield takeLeading(FILL_USER, workerSagaFillUser);
+    yield takeLeading(LOAD_PRODUCT, Worker.SagaGETProducts);
+    yield takeLeading(LOAD_COMMENTS, Worker.SagaGETComments);
+    yield takeLeading(FORM_COMMENTS, Worker.SagaPOSTComments);
+    yield takeLeading(FILL_USER, Worker.SagaFillUser);
 };
 
 export default function* rootSaga() {

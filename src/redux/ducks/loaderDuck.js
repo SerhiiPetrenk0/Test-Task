@@ -1,6 +1,6 @@
 // Actions
-export const LOADER_HIDE = 'loaderReducers/LOADER_HIDE';
-export const LOADER_SHOW = 'loaderReducers/LOADER_SHOW';
+export const LOADER_HIDE = 'loaderDuck/LOADER_HIDE';
+export const LOADER_SHOW = 'loaderDuck/LOADER_SHOW';
 
 const initialStore = {
     status: false

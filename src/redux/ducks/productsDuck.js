@@ -3,14 +3,14 @@ import { getProductsAPI, getCommentsAPI, postCommentAPI } from '../../api';
 import {loaderHide, loaderShow} from './loaderDuck';
 
 // Actions
-export const GET_PRODUCTS = 'productsReducers/GET_PRODUCTS';
-export const LOAD_PRODUCT = 'productsReducers/LOAD_PRODUCT';
+export const GET_PRODUCTS = 'productsDuck/GET_PRODUCTS';
+export const LOAD_PRODUCT = 'productsDuck/LOAD_PRODUCT';
 
-export const GET_COMMENTS = 'productsReducers/GET_COMMENTS';
-export const LOAD_COMMENTS = 'productsReducers/LOAD_COMMENTS';
+export const GET_COMMENTS = 'productsDuck/GET_COMMENTS';
+export const LOAD_COMMENTS = 'productsDuck/LOAD_COMMENTS';
 
-export const FORM_COMMENTS = 'productsReducers/FORM_COMMENTS';
-export const POST_COMMENTS = 'productsReducers/POST_COMMENTS';
+export const FORM_COMMENTS = 'productsDuck/FORM_COMMENTS';
+export const POST_COMMENTS = 'productsDuck/POST_COMMENTS';
 
 const initialStore = {
     products: [],

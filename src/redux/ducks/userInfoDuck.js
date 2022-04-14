@@ -2,8 +2,8 @@ import { call, put } from 'redux-saga/effects';
 import { postUserInfoAPI } from '../../api';
 
 // Actions
-export const FILL_USER = 'userInfoReducers/FILL_USER';
-export const POST_USER = 'userInfoReducers/POST_USER';
+export const FILL_USER = 'userInfoDuck/FILL_USER';
+export const POST_USER = 'userInfoDuck/POST_USER';
 
 const initialStore = {
     userInfo: {}
