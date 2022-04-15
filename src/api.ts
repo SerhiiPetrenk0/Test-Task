@@ -10,14 +10,14 @@ export const getProductsAPI:<T> () => Promise<T> = async () => {
 };
 
 export const getCommentsAPI:<T> (link: string) => Promise<T> = async link => {
-  const productsURL = `${URL}comments`;
+  const productsURL:string = `${URL}comments`;
   const request = await fetch(productsURL);
   const data = await request.json();
   return data.result.find((item: { asin: string; }) => item.asin === link);
 };
 
 export const postCommentAPI: (formValue: TypePostForm) => void = formValue => {
-  const commentURL = `${URL}comments`;
+  const commentURL:string = `${URL}comments`;
   fetch(commentURL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -28,7 +28,7 @@ export const postCommentAPI: (formValue: TypePostForm) => void = formValue => {
 };
 
 export const postUserInfoAPI: (userInfo: TypeUserinfo) => void = userInfo => {
-  const commentURL = `${URL}user`;
+  const commentURL:string = `${URL}user`;
   fetch(commentURL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

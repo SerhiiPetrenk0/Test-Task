@@ -18,12 +18,12 @@ export const ItemProducts:React.FC = () => {
             products: TypeProduct[],
             comments: TypeComment
         }
-    }
+    };
     type TStatusStore = {
         loader:{
             status: boolean
         }
-    }
+    };
     const { products, comments } = useSelector((store:TProductsStore) => store.product);
     const status = useSelector((store:TStatusStore) => store.loader.status);
     const dispatch = useDispatch();
