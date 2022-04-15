@@ -19,12 +19,12 @@ export const PostForm:React.FC = () => {
             comments: '',
         }
     );
-
+    
     const stars: number[] = Array(5).fill(0);
     const dispatch = useDispatch();
-    const userInfo = useSelector((store:{userInfo:{userInfo: TypeUserinfo}}) => store.userInfo.userInfo);
+    const userInfo: TypeUserinfo = useSelector((store:{userInfo:{userInfo: TypeUserinfo}}) => store.userInfo.userInfo);
 
-    const handleMouseOver = (newHoverValue: React.SetStateAction<undefined | number>): void => setHoverValue(newHoverValue);
+    const handleMouseOver = (newHoverValue: React.SetStateAction<number | undefined>) => setHoverValue(newHoverValue);
     const handleMouseLeave = () => setHoverValue(undefined);
     const handleTextarea = (val: string) => setFormValue({...formValue, comments:val});
     const handleClose = () => setShow(false);

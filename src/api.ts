@@ -1,20 +1,22 @@
-const URL = 'http://demo8021751.mockable.io/';
+import { TypePostForm, TypeUserinfo } from './interface'
 
-export const getProductsAPI = async () => {
-  const productsURL = `${URL}products`;
+const URL: string = 'http://demo8021751.mockable.io/';
+
+export const getProductsAPI:<T> () => Promise<T> = async () => {
+  const productsURL:string = `${URL}products`;
   const request = await fetch(productsURL);
   const data = await request.json();
   return data.products;
 };
 
-export const getCommentsAPI = async (link: any) => {
+export const getCommentsAPI:<T> (link: string) => Promise<T> = async link => {
   const productsURL = `${URL}comments`;
   const request = await fetch(productsURL);
   const data = await request.json();
-  return data.result.find((item: { asin: any; }) => item.asin === link);
+  return data.result.find((item: { asin: string; }) => item.asin === link);
 };
 
-export const postCommentAPI = (formValue: any) => {
+export const postCommentAPI: (formValue: TypePostForm) => void = formValue => {
   const commentURL = `${URL}comments`;
   fetch(commentURL, {
     method: 'POST',
@@ -25,7 +27,7 @@ export const postCommentAPI = (formValue: any) => {
     .then(result => result.result.push(formValue));
 };
 
-export const postUserInfoAPI = (userInfo: any) => {
+export const postUserInfoAPI: (userInfo: TypeUserinfo) => void = userInfo => {
   const commentURL = `${URL}user`;
   fetch(commentURL, {
     method: 'POST',
@@ -33,5 +35,5 @@ export const postUserInfoAPI = (userInfo: any) => {
     body: JSON.stringify(userInfo)
   })
    .then(response => response.json())
-   .then(result => result );
+   .then(result => result);
 };

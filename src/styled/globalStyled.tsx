@@ -23,7 +23,8 @@ export const GlobalStyle = createGlobalStyle`
             monospace;
     }
 `;
-export const devices = {
+
+export const devices: TypeDevices = {
     XSmall: '(max-width: 575.98px)',
     Small: '(min-width: 576px)',
     Medium: '(min-width: 768px)',
@@ -31,7 +32,8 @@ export const devices = {
     ELarge: '(min-width: 1200px)',
     EElarge: '(min-width: 1400px)'
   };
-export const colors = {
+
+export const colors: TypeColors = {
     cardSubtitle: '#323232',
     link: '#000000',
     starActive: '#FFBA5A',
@@ -46,3 +48,21 @@ export const PageSpinner = styled(Spinner)`
     width: 100px;
     height: 100px;
 `;
+
+//Type for globalStyled
+type TypeDevices = {
+    XSmall: string,
+    Small: string,
+    Medium: string,
+    Large: string,
+    ELarge: string,
+    EElarge: string
+};
+type TypeColors = {
+    cardSubtitle: string,
+    link: string,
+    starActive: string,
+    starDisable: string,
+    invaidForm: string,
+    validForm: string
+};

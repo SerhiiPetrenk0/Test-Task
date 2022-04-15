@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import { getProductsAPI, getCommentsAPI, postCommentAPI } from '../../api';
-import { TypePostForm } from '../../interface';
+import { TypePostForm, TypeProduct, TypeComment } from '../../interface';
 import {loaderHide, loaderShow} from './loaderDuck';
 
 // Actions
@@ -13,13 +13,13 @@ export const LOAD_COMMENTS:string = 'productsDuck/LOAD_COMMENTS';
 export const FORM_COMMENTS:string = 'productsDuck/FORM_COMMENTS';
 export const POST_COMMENTS:string = 'productsDuck/POST_COMMENTS';
 
-const initialStore = {
+const initialStore: IInitialStore = {
     products: [],
     comments: []
 };
 
 // Reducer
-export const productsReducers = (state = initialStore, action: { type: any; payload: any; }) => {
+export const productsReducers = (state = initialStore, action: IProductsReducers) => {
     switch (action.type) {
         case GET_PRODUCTS: {
             return {
@@ -51,41 +51,41 @@ export const productsReducers = (state = initialStore, action: { type: any; payl
 };
 
 // Action Creators
-export const getProductsAction = (data: any) => {
+export const getProductsAction = (data: TypeProduct[]): IGetProductsAction => {
     return {
         type: GET_PRODUCTS,
         payload: data
     };
 };
 
-export const getCommentsAction = (data: any) => {
+export const getCommentsAction = (data: TypeComment): IGetCommentsAction => {
     return {
         type: GET_COMMENTS,
         payload: data
     };
 };
 
-export const postCommentAction = (data: any) => {
+export const postCommentAction = (data: TypePostForm): IPostCommentAction => {
     return {
         type: POST_COMMENTS,
         payload: data
     }; 
 };
 
-export const loadProduct = () => {
+export const loadProduct = (): ILoadProduct => {
     return {
         type: LOAD_PRODUCT
     };
 };
 
-export const loadComment = (data: string | undefined) => {
+export const loadComment = (data: string | undefined): ILoadComment => {
     return {
         type: LOAD_COMMENTS,
         payload: data
     };
 };
 
-export const formComment = (data: TypePostForm) => {
+export const formComment = (data: TypePostForm): IFormComment => {
     return {
         type: FORM_COMMENTS,
         payload: data
@@ -94,27 +94,68 @@ export const formComment = (data: TypePostForm) => {
 
 // Saga Worker
 export function* workerSagaGETProducts() { 
-    const product:ResponseGenerator = yield call(getProductsAPI);
+    const product:TypeProduct[] = yield call(getProductsAPI);
     yield put(getProductsAction(product));
 }
 
-export function* workerSagaGETComments(action: { payload: any, type: any; }) {
-    yield put(loaderHide());
-    const comment:ResponseGenerator = yield call(getCommentsAPI, action.payload);
-    yield put(getCommentsAction(comment));
+export function* workerSagaGETComments(action: IWorkerSagaGETComments) {
     yield put(loaderShow());
+    const comment:TypeComment = yield call(getCommentsAPI, action.payload);
+    yield put(getCommentsAction(comment));
+    yield put(loaderHide());
 }
 
-export function* workerSagaPOSTComments(action: { payload: any, type: any; }) {
+export function* workerSagaPOSTComments(action: IWorkerSagaPOSTComments) {
     yield call(postCommentAPI, action.payload);
     yield put(postCommentAction(action.payload));
 }
 
-export interface ResponseGenerator{
-    config?:any,
-    data?:any,
-    headers?:any,
-    request?:any,
-    status?:number,
-    statusText?:string
-}
+// Interface
+interface IGetProductsAction {
+        type: typeof GET_PRODUCTS,
+        payload: TypeProduct[]
+};
+
+interface IGetCommentsAction {
+        type: typeof GET_COMMENTS,
+        payload: TypeComment
+};
+
+interface IPostCommentAction {
+        type: typeof POST_COMMENTS,
+        payload: TypePostForm
+};
+
+interface ILoadProduct {
+        type: typeof LOAD_PRODUCT
+};
+
+interface ILoadComment {
+        type: typeof LOAD_COMMENTS,
+        payload: string | undefined
+};
+
+interface IFormComment {
+        type: typeof FORM_COMMENTS,
+        payload: TypePostForm
+};
+
+interface IWorkerSagaGETComments {
+    payload: string,
+    type: string
+};
+
+interface IWorkerSagaPOSTComments {
+    payload: TypePostForm,
+    type: string
+};
+
+interface IProductsReducers {
+    payload: (TypeComment | TypeProduct | TypePostForm)[] ,
+    type: string
+};
+
+interface IInitialStore {
+    products: (TypeProduct | never)[],
+    comments: TypeComment | never[]
+};

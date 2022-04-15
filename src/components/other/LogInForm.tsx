@@ -5,24 +5,30 @@ import { useDispatch  } from 'react-redux';
 import { useFormik } from 'formik';
 import { StyledValidEmail } from '../../styled/other/LogInForm';
 import { fillUser } from '../../redux/ducks/userInfoDuck';
+import { TypeFormikLogInForm, TypeUserinfo } from '../../interface'
 
-export const LogInForm = (props: { show: any; handleClose: any; }) => {
+interface TypeProps {
+  show: boolean,
+  handleClose: () => void
+}
+
+export const LogInForm: React.FC<TypeProps> = props => {
     const { show, handleClose } = props;
     const dispatch = useDispatch();
-    const formik = useFormik({
+    const formik: TypeFormikLogInForm = useFormik({
       initialValues:{
         email: '',
         password: ''
       },
       validationSchema: YopLoginForm,
-      onSubmit: values => {
+      onSubmit: (values: TypeUserinfo) => {
         dispatch(fillUser(formik.values))
         handleClose()
       }
     });
   
-    const emailMassage = <StyledValidEmail check={formik.errors.email}>{!!formik.errors.email ? formik.errors.email : "We'll never share your email with anyone else."}</StyledValidEmail>;
-    const passwordMassage = <StyledValidEmail check={formik.errors.password}>{!!formik.errors.password ? formik.errors.password : "Your password must be 6 to 16 characters long, contain letters, numbers, special characters !@#$%^&*, And no spaces or emojis."}</StyledValidEmail>;
+    const emailMassage:JSX.Element = <StyledValidEmail check={formik.errors.email}>{!!formik.errors.email ? formik.errors.email : "We'll never share your email with anyone else."}</StyledValidEmail>;
+    const passwordMassage:JSX.Element = <StyledValidEmail check={formik.errors.password}>{!!formik.errors.password ? formik.errors.password : "Your password must be 6 to 16 characters long, contain letters, numbers, special characters !@#$%^&*, And no spaces or emojis."}</StyledValidEmail>;
 
     return (
       <>

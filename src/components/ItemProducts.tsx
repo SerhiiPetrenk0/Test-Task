@@ -8,26 +8,36 @@ import { PostForm, Comment } from '.';
 import { loadProduct, loadComment } from '../redux/ducks/productsDuck';
 import * as Styled from '../styled/ItemProducts';
 import { PageSpinner } from '../styled/globalStyled';
-import { TypeProduct, TypeComment } from '../interface';
+import { TypeProduct, TypeComment, TypePostForm } from '../interface';
 
-export const ItemProducts = (props: any) => {
-    const [ itemProduct, setItemProduct ] = useState<TypeProduct | any>([]);
-    const [ itemComment, setItemComment] = useState<TypeComment | any>([]);
-    const { products, comments } = useSelector((store:{product:{products: [],comments: TypeComment}}) => store.product);
-    const status = useSelector((store:{loader:{status: boolean}}) => store.loader.status);
+export const ItemProducts:React.FC = () => {
+    const [ itemProduct, setItemProduct ] = useState<TypeProduct | undefined>(undefined);
+    const [ itemComment, setItemComment] = useState<TypePostForm[]>([]);
+    type TProductsStore = {
+        product:{
+            products: TypeProduct[],
+            comments: TypeComment
+        }
+    }
+    type TStatusStore = {
+        loader:{
+            status: boolean
+        }
+    }
+    const { products, comments } = useSelector((store:TProductsStore) => store.product);
+    const status = useSelector((store:TStatusStore) => store.loader.status);
     const dispatch = useDispatch();
     const linkProduct = useParams();
     const checkStore = () => products.length === 0 && dispatch(loadProduct());
-
     const chooseProduct = () => {
-        const chooseItem = products.find((item: { asin: string | undefined; }) => item.asin === linkProduct.id);
+        const chooseItem = products.find((item: { asin: string }) => item.asin === linkProduct.id);
         setItemProduct(chooseItem);
     };
     const checkComments = () => ( !!!comments.body || comments.asin !== linkProduct.id) ? 
         dispatch(loadComment(linkProduct.id)) : 
         setItemComment(comments.body);
     
-    const renderComment = itemComment.map((item:{}, index:number) => <Comment key={index} ListComment={item} />);
+    const renderComment: JSX.Element[] = itemComment.map((item:TypePostForm, index:number) => <Comment key={index} ListComment={item} />);
 
     const deeps = [products, linkProduct.id, comments.body];
     useEffect(() => {
@@ -38,7 +48,7 @@ export const ItemProducts = (props: any) => {
 
     return (
         <>
-            {!status ? ( 
+            {status ? ( 
                 <PageSpinner animation="border" /> 
             ) : (
               <Styled.Container>

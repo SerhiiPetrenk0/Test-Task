@@ -1,14 +1,22 @@
-export interface TypeStarBarProps {
-    count: string;
-  };
+import { FormikErrors } from "formik";
+
+export interface TypeFormikLogInForm {
+    [x: string]: any;
+    initialValues: TypeUserinfo,
+    initialErrors?: FormikErrors<TypeUserinfo>,
+    validationSchema?: any
+};
+
 export interface TypeUserinfo {
     email: string,
     password: string
-}
+};
+
 export interface TypePostForm {
     rating: string,
     comments: string
-}
+};
+
 export interface TypeProduct {
     in_potential_products: boolean,
     asin: string,
@@ -30,13 +38,9 @@ export interface TypeProduct {
     link: string,
     bsr_category: string,
     brand: string
-}
+};
+
 export interface TypeComment {
     asin: string,
-    body: [
-        {
-        rating: string,
-        comments: string
-        }
-    ]
-    }
+    body: [TypePostForm]
+};
