@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from '@redux-saga/core';
+
 import { rootReducers } from './ducks/rootDuck';
 import rootSaga from './watchSaga';
 

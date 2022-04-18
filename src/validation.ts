@@ -5,6 +5,7 @@ export const YopLoginForm = Yup.object({
     .string()
     .max(30, 'Max simbol 30))')
     .required('* this field is required')
+    // eslint-disable-next-line no-useless-escape
     .matches(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ , 'Invalid email'),
     password: Yup
     .string()

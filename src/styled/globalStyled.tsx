@@ -38,7 +38,7 @@ export const colors: TypeColors = {
     link: '#000000',
     starActive: '#FFBA5A',
     starDisable: '#a9a9a9',
-    invaidForm: '#BC0300',
+    invalidForm: '#BC0300',
     validForm: '#00BC10'
 };
 export const PageSpinner = styled(Spinner)`
@@ -63,6 +63,6 @@ type TypeColors = {
     link: string,
     starActive: string,
     starDisable: string,
-    invaidForm: string,
+    invalidForm: string,
     validForm: string
 };

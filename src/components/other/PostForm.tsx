@@ -9,7 +9,7 @@ import { colors } from '../../styled/globalStyled';
 import { StyledContainer, StyledFormGroup, StyledBsStarFill } from '../../styled/other/PostForm';
 import { TypeUserinfo, TypePostForm } from '../../interface';
 
-export const PostForm:React.FC = () => {
+export const PostForm: React.FC = () => {
     const [currentValue, setCurrentValue] = useState<number>(0);
     const [hoverValue, setHoverValue] = useState<undefined | number>(undefined);
     const [show, setShow] = useState<boolean>(false);
@@ -19,21 +19,26 @@ export const PostForm:React.FC = () => {
             comments: '',
         }
     );
-    
+
+    type TUserInfo = {
+        userInfo: {
+            userInfo: TypeUserinfo
+        }
+    };
     const stars: number[] = Array(5).fill(0);
     const dispatch = useDispatch();
-    const userInfo: TypeUserinfo = useSelector((store:{userInfo:{userInfo: TypeUserinfo}}) => store.userInfo.userInfo);
+    const userInfo: TypeUserinfo = useSelector((store: TUserInfo) => store.userInfo.userInfo);
 
     const handleMouseOver = (newHoverValue: React.SetStateAction<number | undefined>) => setHoverValue(newHoverValue);
     const handleMouseLeave = () => setHoverValue(undefined);
     const handleTextarea = (val: string) => setFormValue({...formValue, comments:val});
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleSubmit = (event: { preventDefault: () => void; }) => {
+    const handleSubmit = (event: { preventDefault: () => void }) => {
         event.preventDefault();
         if (!!userInfo.email) {
             dispatch(formComment(formValue));
-            setFormValue({ ...formValue, comments:''});
+            setFormValue({ ...formValue, comments:'' });
             setCurrentValue(0);
         } else {
             handleShow()

@@ -1,11 +1,12 @@
 import React from 'react';
-import { YopLoginForm } from '../../validation';
 import { Form, Button, Modal } from 'react-bootstrap';
 import { useDispatch  } from 'react-redux';
 import { useFormik } from 'formik';
+
 import { StyledValidEmail } from '../../styled/other/LogInForm';
 import { fillUser } from '../../redux/ducks/userInfoDuck';
-import { TypeFormikLogInForm, TypeUserinfo } from '../../interface'
+import { TypeFormikLogInForm, TypeUserinfo } from '../../interface';
+import { YopLoginForm } from '../../validation';
 
 interface TypeProps {
   show: boolean,
@@ -16,7 +17,7 @@ export const LogInForm: React.FC<TypeProps> = props => {
     const { show, handleClose } = props;
     const dispatch = useDispatch();
     const formik: TypeFormikLogInForm = useFormik({
-      initialValues:{
+      initialValues: {
         email: '',
         password: ''
       },
@@ -26,13 +27,33 @@ export const LogInForm: React.FC<TypeProps> = props => {
         handleClose()
       }
     });
-  
-    const emailMassage:JSX.Element = <StyledValidEmail check={formik.errors.email}>{!!formik.errors.email ? formik.errors.email : "We'll never share your email with anyone else."}</StyledValidEmail>;
-    const passwordMassage:JSX.Element = <StyledValidEmail check={formik.errors.password}>{!!formik.errors.password ? formik.errors.password : "Your password must be 6 to 16 characters long, contain letters, numbers, special characters !@#$%^&*, And no spaces or emojis."}</StyledValidEmail>;
+    
+    const emailLog = !!formik.errors.email ?
+      formik.errors.email :
+      "We'll never share your email with anyone else.";
+    const emailMassage: JSX.Element = (
+    <StyledValidEmail check={formik.errors.email}>
+     {emailLog}
+    </StyledValidEmail>
+    );
+
+    const passwordLog = !!formik.errors.password ?
+      formik.errors.password : 
+      "Your password must be 6 to 16 characters long, contain letters, numbers, special characters !@#$%^&*, And no spaces or emojis."
+    const passwordMassage: JSX.Element = (
+    <StyledValidEmail check={formik.errors.password}>
+      {passwordLog}
+    </StyledValidEmail>
+    );
 
     return (
       <>
-        <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+        <Modal 
+          show={show} 
+          onHide={handleClose} 
+          backdrop="static" 
+          keyboard={false}
+        >
           <Modal.Header closeButton>
             <Modal.Title>Registration</Modal.Title>
           </Modal.Header>
@@ -40,13 +61,25 @@ export const LogInForm: React.FC<TypeProps> = props => {
             <Form onSubmit={formik.handleSubmit}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control name="email" onChange={formik.handleChange} value={formik.values.email} type="email" placeholder="Enter email" />
+                <Form.Control 
+                  name="email" 
+                  onChange={formik.handleChange} 
+                  value={formik.values.email} 
+                  type="email" 
+                  placeholder="Enter email" 
+                />
                 {emailMassage}
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control name="password" onChange={formik.handleChange} value={formik.values.password} type="password" placeholder="Password" />
+                <Form.Control 
+                  name="password" 
+                  onChange={formik.handleChange} 
+                  value={formik.values.password} 
+                  type="password" 
+                  placeholder="Password" 
+                />
                 {passwordMassage}
               </Form.Group>
 

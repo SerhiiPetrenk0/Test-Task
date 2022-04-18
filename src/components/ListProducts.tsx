@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+
 import * as Styled from '../styled/ListProducts';
 import { loadProduct } from '../redux/ducks/productsDuck';
-import { useSelector, useDispatch } from 'react-redux';
 import { TypeProduct } from '../interface';
 
-export const ListProducts:React.FC = () => {
+export const ListProducts: React.FC = () => {
     const [List, setList] = useState<TypeProduct[]>([]);
     const dispatch = useDispatch();
     type TStore = {
       product: {
-        products:TypeProduct[]
+        products: TypeProduct[]
       }
     };
-    const store:TypeProduct[] = useSelector((store: TStore) => store.product.products);
+    const store: TypeProduct[] = useSelector((store: TStore) => store.product.products);
 
-    const renderItems:JSX.Element[] = List.map((item: TypeProduct) => (
+    const renderItems: JSX.Element[] = List.map((item: TypeProduct) => (
           <Styled.Col key={item.asin} lg="3" md="4" sm="6">
             <Styled.Link key={item.asin} to={`/Product/${item.asin}`}>
               <Styled.Card>
@@ -40,7 +41,7 @@ export const ListProducts:React.FC = () => {
 
     return (
       <>
-        {!!!store ? (
+        {!store ? (
             <Styled.Spinner animation="border" /> 
           ) : (
             <Container>

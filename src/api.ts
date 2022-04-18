@@ -1,15 +1,15 @@
-import { TypePostForm, TypeUserinfo } from './interface'
+import { TypePostForm, TypeUserinfo } from './interface';
 
 const URL: string = 'http://demo8021751.mockable.io/';
 
-export const getProductsAPI:<T> () => Promise<T> = async () => {
+export const getProductsAPI: <T> () => Promise<T> = async () => {
   const productsURL:string = `${URL}products`;
   const request = await fetch(productsURL);
   const data = await request.json();
   return data.products;
 };
 
-export const getCommentsAPI:<T> (link: string) => Promise<T> = async link => {
+export const getCommentsAPI: <T> (link: string) => Promise<T> = async link => {
   const productsURL:string = `${URL}comments`;
   const request = await fetch(productsURL);
   const data = await request.json();
@@ -17,7 +17,7 @@ export const getCommentsAPI:<T> (link: string) => Promise<T> = async link => {
 };
 
 export const postCommentAPI: (formValue: TypePostForm) => void = formValue => {
-  const commentURL:string = `${URL}comments`;
+  const commentURL: string = `${URL}comments`;
   fetch(commentURL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -28,7 +28,7 @@ export const postCommentAPI: (formValue: TypePostForm) => void = formValue => {
 };
 
 export const postUserInfoAPI: (userInfo: TypeUserinfo) => void = userInfo => {
-  const commentURL:string = `${URL}user`;
+  const commentURL: string = `${URL}user`;
   fetch(commentURL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

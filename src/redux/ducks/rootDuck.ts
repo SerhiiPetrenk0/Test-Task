@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+
 import { productsReducers } from './productsDuck';
 import { loaderReducers } from './loaderDuck';
 import { userInfoReducers } from './userInfoDuck';

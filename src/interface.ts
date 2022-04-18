@@ -1,21 +1,28 @@
-import { FormikErrors } from "formik";
+import { FormikErrors } from 'formik';
+import { ChangeEventHandler, FormEventHandler } from 'react';
 
 export interface TypeFormikLogInForm {
-    [x: string]: any;
+    errors: {
+        email?: string,
+        password?: string
+    },
+    values: TypeUserinfo,
+    handleSubmit: FormEventHandler<HTMLFormElement>,
+    handleChange: ChangeEventHandler<HTMLInputElement>,
     initialValues: TypeUserinfo,
     initialErrors?: FormikErrors<TypeUserinfo>,
-    validationSchema?: any
-};
+    validationSchema?: TypeUserinfo
+}
 
 export interface TypeUserinfo {
     email: string,
     password: string
-};
+}
 
 export interface TypePostForm {
     rating: string,
     comments: string
-};
+}
 
 export interface TypeProduct {
     in_potential_products: boolean,
@@ -38,9 +45,9 @@ export interface TypeProduct {
     link: string,
     bsr_category: string,
     brand: string
-};
+}
 
 export interface TypeComment {
     asin: string,
     body: [TypePostForm]
-};
+}

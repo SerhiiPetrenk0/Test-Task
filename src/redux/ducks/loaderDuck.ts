@@ -1,10 +1,11 @@
 // Actions
-export const LOADER_HIDE:string = 'loaderDuck/LOADER_HIDE';
-export const LOADER_SHOW:string = 'loaderDuck/LOADER_SHOW';
+export const LOADER_HIDE: string = 'loaderDuck/LOADER_HIDE';
+export const LOADER_SHOW: string = 'loaderDuck/LOADER_SHOW';
 
 const initialStore: IInitialStore = {
     status: false
 };
+
 // Reducer
 export function loaderReducers(state = initialStore, action: ILoaderReducers) {
     switch (action.type) {
@@ -26,31 +27,27 @@ export function loaderReducers(state = initialStore, action: ILoaderReducers) {
 };
 
 // Action Creators
-export const loaderHide: () => ILoaderHide = () => {
-    return {
+export const loaderHide: () => ILoaderHide = () => ({
         type: LOADER_HIDE
-    };
-};
+});
 
-export const loaderShow: () => ILoaderShow   = () => {
-    return {
+export const loaderShow: () => ILoaderShow = () => ({
         type: LOADER_SHOW
-    };
-};
+});
 
 // Interface
 interface IInitialStore {
     status: boolean
-};
+}
 
 interface ILoaderHide {
-        type: typeof LOADER_HIDE
-};
+    type: typeof LOADER_HIDE
+}
 
 interface ILoaderShow {
-        type: typeof LOADER_SHOW
-};
+    type: typeof LOADER_SHOW
+}
 
 interface ILoaderReducers {
     type: string
-};
+}
