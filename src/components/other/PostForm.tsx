@@ -7,38 +7,44 @@ import { LogInForm } from './LogInForm';
 import { formComment } from '../../redux/ducks/productsDuck';
 import { colors } from '../../styled/globalStyled';
 import { StyledContainer, StyledFormGroup, StyledBsStarFill } from '../../styled/other/PostForm';
+import { TypeUserinfo, TypePostForm } from '../../interface';
 
-export const PostForm = () => {
-    const [currentValue, setCurrentValue] = useState(0);
-    const [hoverValue, setHoverValue] = useState(undefined);
-    const [show, setShow] = useState(false);
-    const [formValue, setFormValue] = useState(
+export const PostForm: React.FC = () => {
+    const [currentValue, setCurrentValue] = useState<number>(0);
+    const [hoverValue, setHoverValue] = useState<undefined | number>(undefined);
+    const [show, setShow] = useState<boolean>(false);
+    const [formValue, setFormValue] = useState<TypePostForm>(
         {
             rating: '',
             comments: '',
         }
     );
 
-    const stars = Array(5).fill(0);
+    type TUserInfo = {
+        userInfo: {
+            userInfo: TypeUserinfo
+        }
+    };
+    const stars: number[] = Array(5).fill(0);
     const dispatch = useDispatch();
-    const userInfo = useSelector(store => store.userInfo.userInfo);
+    const userInfo: TypeUserinfo = useSelector((store: TUserInfo) => store.userInfo.userInfo);
 
-    const handleMouseOver = newHoverValue => setHoverValue(newHoverValue);
+    const handleMouseOver = (newHoverValue: React.SetStateAction<number | undefined>) => setHoverValue(newHoverValue);
     const handleMouseLeave = () => setHoverValue(undefined);
-    const handleTextarea = val => setFormValue({...formValue, comments:val});
+    const handleTextarea = (val: string) => setFormValue({...formValue, comments:val});
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const handleSubmit = event => {
+    const handleSubmit = (event: { preventDefault: () => void }) => {
         event.preventDefault();
         if (!!userInfo.email) {
             dispatch(formComment(formValue));
-            setFormValue({ ...formValue, comments:''});
+            setFormValue({ ...formValue, comments:'' });
             setCurrentValue(0);
         } else {
             handleShow()
         }
     };
-    const handleClick = value => {
+    const handleClick = (value: React.SetStateAction<number>) => {
         setCurrentValue(value);
         setFormValue({...formValue, rating: value.toString()});
     };

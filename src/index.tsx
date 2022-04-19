@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './redux';
-import reportWebVitals from './reportWebVitals';
+
 import App from './App';
+
+import store from './redux';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -13,5 +14,3 @@ ReactDOM.render(
     </React.StrictMode>,
   document.getElementById('root')
 );
-
-reportWebVitals();

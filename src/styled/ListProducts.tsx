@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { Col, Card, Row, Spinner } from 'react-bootstrap';
-import { colors } from './globalStyled';
 import { Link } from 'react-router-dom';
+import { Col, Card, Row, Spinner } from 'react-bootstrap';
+
+import { colors } from './globalStyled';
 
 const StyledCol = styled(Col)`
     margin-top: 20px;

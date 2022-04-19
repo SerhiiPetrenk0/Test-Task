@@ -1,17 +1,22 @@
 import React from 'react';
+
 import { StyledBsStarFill, StyledStars } from '../../styled/other/StarBar';
 import { colors } from '../../styled/globalStyled';
 
-export const StarBar = props => {
-    const stars = Array(5).fill(0);
+interface TypeProps {
+  count: string
+}
+
+export const StarBar: React.FC<TypeProps> = props => {
+    const stars: number[] = Array(5).fill(0);
     const { count } = props;
     return (
         <StyledStars>
-          {stars.map((_, index) => (
+          {stars.map((_: number, index: number) => (
               <StyledBsStarFill
                 key={index}
                 size={20}
-                color={count > index ? colors.starActive : colors.starDisable}
+                color={parseInt(count, 10) > index ? colors.starActive : colors.starDisable}
               />
             ))}
         </StyledStars>
