@@ -32,18 +32,18 @@ export const LogInForm: React.FC<TypeProps> = props => {
       formik.errors.email :
       "We'll never share your email with anyone else.";
     const emailMassage: JSX.Element = (
-    <StyledValidEmail check={formik.errors.email}>
-     {emailLog}
-    </StyledValidEmail>
+      <StyledValidEmail check={formik.errors.email}>
+        {emailLog}
+      </StyledValidEmail>
     );
 
     const passwordLog = !!formik.errors.password ?
       formik.errors.password : 
       "Your password must be 6 to 16 characters long, contain letters, numbers, special characters !@#$%^&*, And no spaces or emojis."
     const passwordMassage: JSX.Element = (
-    <StyledValidEmail check={formik.errors.password}>
-      {passwordLog}
-    </StyledValidEmail>
+      <StyledValidEmail check={formik.errors.password}>
+        {passwordLog}
+      </StyledValidEmail>
     );
 
     return (

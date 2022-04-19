@@ -23,16 +23,16 @@ export function loaderReducers(state = initialStore, action: ILoaderReducers) {
         }
         default:
             return state;
-    };
-};
+    }
+}
 
 // Action Creators
 export const loaderHide: () => ILoaderHide = () => ({
-        type: LOADER_HIDE
+    type: LOADER_HIDE
 });
 
 export const loaderShow: () => ILoaderShow = () => ({
-        type: LOADER_SHOW
+    type: LOADER_SHOW
 });
 
 // Interface

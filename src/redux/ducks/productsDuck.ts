@@ -52,37 +52,37 @@ export const productsReducers = (state = initialStore, action: IProductsReducers
         }
         default:
             return state;
-    };
-};
+    }
+}
 
 // Action Creators
 export const getProductsAction = (data: TypeProduct[]): IGetProductsAction => ({
-        type: GET_PRODUCTS,
-        payload: data
+    type: GET_PRODUCTS,
+    payload: data
 });
 
 export const getCommentsAction = (data: TypeComment): IGetCommentsAction => ({
-        type: GET_COMMENTS,
-        payload: data
+    type: GET_COMMENTS,
+    payload: data
 });
 
 export const postCommentAction = (data: TypePostForm): IPostCommentAction => ({
-        type: POST_COMMENTS,
-        payload: data
+    type: POST_COMMENTS,
+    payload: data
 });
 
 export const loadProduct = (): ILoadProduct => ({
-        type: LOAD_PRODUCT
+    type: LOAD_PRODUCT
 });
 
 export const loadComment = (data: string | undefined): ILoadComment => ({
-        type: LOAD_COMMENTS,
-        payload: data
+    type: LOAD_COMMENTS,
+    payload: data
 });
 
 export const formComment = (data: TypePostForm): IFormComment => ({
-        type: FORM_COMMENTS,
-        payload: data
+    type: FORM_COMMENTS,
+    payload: data
 });
 
 // Saga Worker

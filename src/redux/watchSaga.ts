@@ -13,8 +13,8 @@ export function* watchSaga() {
     yield takeLeading(LOAD_COMMENTS, Worker.SagaGETComments);
     yield takeLeading(FORM_COMMENTS, Worker.SagaPOSTComments);
     yield takeLeading(FILL_USER, Worker.SagaFillUser);
-};
+}
 
 export default function* rootSaga() {
     yield watchSaga();
-};
+}

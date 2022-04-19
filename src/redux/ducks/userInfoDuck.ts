@@ -23,18 +23,18 @@ export function userInfoReducers(state = initialStore, action: IUserInfoReducers
         }
         default:
             return state;
-    };
-};
+    }
+}
 
 // Action Creators
 export const fillUser = (data: TypeUserinfo): IFillUser => ({
-        type: FILL_USER,
-        payload: data
+    type: FILL_USER,
+    payload: data
 });
 
 export const postUserInfoAction = (data: TypeUserinfo): IPostUserInfoAction => ({
-        type: typeof POST_USER,
-        payload: data
+    type: typeof POST_USER,
+    payload: data
 });
 
 // Saga Worker
