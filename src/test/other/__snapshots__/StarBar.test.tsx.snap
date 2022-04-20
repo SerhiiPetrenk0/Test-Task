@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`StarBar component Snapshot StarBar component with props 1`] = `
 <div
   className="sc-gsnTZi iZocvQ"
 >
@@ -106,5 +106,3 @@ exports[`renders correctly 1`] = `
   </svg>
 </div>
 `;
-
-exports[`should render StarBar component 1`] = `ShallowWrapper {}`;

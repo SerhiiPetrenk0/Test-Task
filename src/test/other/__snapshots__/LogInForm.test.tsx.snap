@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogInForm component Snapshot LogInForm hide 1`] = `null`;
+
+exports[`LogInForm component Snapshot LogInForm show 1`] = `null`;
