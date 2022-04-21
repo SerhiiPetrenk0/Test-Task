@@ -1,5 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LogInForm component Snapshot LogInForm hide 1`] = `null`;
-
-exports[`LogInForm component Snapshot LogInForm show 1`] = `null`;
+exports[`LogInForm component Snapshot LogInForm component 1`] = `
+<Fragment>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop="static"
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={false}
+    onHide={[Function]}
+    restoreFocus={true}
+    show={false}
+  >
+    <ModalHeader
+      closeButton={true}
+      closeLabel="Close"
+    >
+      <ModalTitle>
+        Registration
+      </ModalTitle>
+    </ModalHeader>
+    <ModalBody>
+      <Form
+        onSubmit={[Function]}
+      >
+        <FormGroup
+          className="mb-3"
+          controlId="formBasicEmail"
+        >
+          <FormLabel
+            column={false}
+            visuallyHidden={false}
+          >
+            Email address
+          </FormLabel>
+          <FormControl
+            name="email"
+            onChange={[Function]}
+            placeholder="Enter email"
+            type="email"
+            value=""
+          />
+          <Styled(FormText)>
+            We'll never share your email with anyone else.
+          </Styled(FormText)>
+        </FormGroup>
+        <FormGroup
+          className="mb-3"
+          controlId="formBasicPassword"
+        >
+          <FormLabel
+            column={false}
+            visuallyHidden={false}
+          >
+            Password
+          </FormLabel>
+          <FormControl
+            name="password"
+            onChange={[Function]}
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+          <Styled(FormText)>
+            Your password must be 6 to 16 characters long, contain letters, numbers, special characters !@#$%^&*, And no spaces or emojis.
+          </Styled(FormText)>
+        </FormGroup>
+        <Button
+          active={false}
+          disabled={false}
+          type="submit"
+          variant="primary"
+        >
+          Submit
+        </Button>
+      </Form>
+    </ModalBody>
+  </Modal>
+</Fragment>
+`;

@@ -1,14 +1,15 @@
 import React from "react";
-import { configure, shallow } from "enzyme";
+import { configure, mount, shallow } from "enzyme";
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { LogInForm } from "../../components/other/LogInForm";
+import { PostForm } from "../../components/other/PostForm";
 import toJson from "enzyme-to-json";
 import store from '../../redux';
 import * as reactRedux from 'react-redux'
+import 'jsdom-global/register';
 
 configure({ adapter: new Adapter() })
 
-describe('LogInForm component', () => {
+describe('PostForm component', () => {
     const useSelectorMock = jest.spyOn(reactRedux, 'useSelector')
     const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch')
     beforeEach(() => {
@@ -18,8 +19,15 @@ describe('LogInForm component', () => {
       const dummyDispatch = jest.fn()
     useSelectorMock.mockReturnValue({store})
     useDispatchMock.mockReturnValue(dummyDispatch) 
-    it('Snapshot LogInForm component', () => {
-      const component = shallow(<LogInForm show={false} handleClose={()=>null}/>)
-      expect(toJson(component)).toMatchSnapshot();
+
+    it('Snapshot PostForm component', () => {
+      expect(toJson(mount(<PostForm />))).toMatchSnapshot();
     }) 
+
+
+    it('Clikc Button PostForm', () => {
+      const component = shallow(<PostForm />)
+      mount(<PostForm />).find('Button').find('button').simulate('click')
+      expect(toJson(component)).toMatchSnapshot();
+    })
   })

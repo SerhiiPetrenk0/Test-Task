@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Comment component Snapshot Comment show 1`] = `
+<Styled(Card)>
+  <CardBody>
+    <CardText>
+      Odio ut qui. Autem cumque deleniti. Quia provident inventore. Enim ipsum totam.
+    </CardText>
+    <CardSubtitle>
+      <StarBar
+        count="4"
+      />
+    </CardSubtitle>
+  </CardBody>
+</Styled(Card)>
+`;

@@ -71,7 +71,7 @@ export const PostForm: React.FC = () => {
                         <Form.Control as="textarea" rows={3} value={formValue.comments} onChange={event => handleTextarea(event.target.value)} />
                     </StyledFormGroup>
                     <Button variant="primary" type="submit">
-                            Submit
+                        Submit
                     </Button>
                 </Form>
             </StyledContainer>
