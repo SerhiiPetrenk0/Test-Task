@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LogInForm component Snapshot LogInForm component 1`] = `
-<Fragment>
+exports[`LogInForm component Snapshot LogInForm component false 1`] = `
+<LogInForm
+  handleClose={[Function]}
+  show={false}
+>
   <Modal
     animation={true}
     autoFocus={true}
@@ -18,70 +21,83 @@ exports[`LogInForm component Snapshot LogInForm component 1`] = `
     restoreFocus={true}
     show={false}
   >
-    <ModalHeader
-      closeButton={true}
-      closeLabel="Close"
-    >
-      <ModalTitle>
-        Registration
-      </ModalTitle>
-    </ModalHeader>
-    <ModalBody>
-      <Form
-        onSubmit={[Function]}
-      >
-        <FormGroup
-          className="mb-3"
-          controlId="formBasicEmail"
-        >
-          <FormLabel
-            column={false}
-            visuallyHidden={false}
-          >
-            Email address
-          </FormLabel>
-          <FormControl
-            name="email"
-            onChange={[Function]}
-            placeholder="Enter email"
-            type="email"
-            value=""
-          />
-          <Styled(FormText)>
-            We'll never share your email with anyone else.
-          </Styled(FormText)>
-        </FormGroup>
-        <FormGroup
-          className="mb-3"
-          controlId="formBasicPassword"
-        >
-          <FormLabel
-            column={false}
-            visuallyHidden={false}
-          >
-            Password
-          </FormLabel>
-          <FormControl
-            name="password"
-            onChange={[Function]}
-            placeholder="Password"
-            type="password"
-            value=""
-          />
-          <Styled(FormText)>
-            Your password must be 6 to 16 characters long, contain letters, numbers, special characters !@#$%^&*, And no spaces or emojis.
-          </Styled(FormText)>
-        </FormGroup>
-        <Button
-          active={false}
-          disabled={false}
-          type="submit"
-          variant="primary"
-        >
-          Submit
-        </Button>
-      </Form>
-    </ModalBody>
+    <Modal
+      autoFocus={true}
+      backdrop="static"
+      backdropTransition={[Function]}
+      enforceFocus={true}
+      keyboard={true}
+      manager={
+        BootstrapModalManager {
+          "handleContainerOverflow": true,
+          "isRTL": false,
+          "modals": Array [],
+          "ownerDocument": undefined,
+        }
+      }
+      onEnter={[Function]}
+      onEntering={[Function]}
+      onEscapeKeyDown={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onHide={[Function]}
+      renderBackdrop={[Function]}
+      renderDialog={[Function]}
+      restoreFocus={true}
+      show={false}
+      transition={[Function]}
+    />
   </Modal>
-</Fragment>
+</LogInForm>
+`;
+
+exports[`LogInForm component Snapshot LogInForm component true 1`] = `
+<LogInForm
+  handleClose={[Function]}
+  show={true}
+>
+  <Modal
+    animation={true}
+    autoFocus={true}
+    backdrop="static"
+    dialogAs={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "render": [Function],
+      }
+    }
+    enforceFocus={true}
+    keyboard={false}
+    onHide={[Function]}
+    restoreFocus={true}
+    show={true}
+  >
+    <Modal
+      autoFocus={true}
+      backdrop="static"
+      backdropTransition={[Function]}
+      enforceFocus={true}
+      keyboard={true}
+      manager={
+        BootstrapModalManager {
+          "handleContainerOverflow": true,
+          "isRTL": false,
+          "modals": Array [],
+          "ownerDocument": undefined,
+        }
+      }
+      onEnter={[Function]}
+      onEntering={[Function]}
+      onEscapeKeyDown={[Function]}
+      onExit={[Function]}
+      onExited={[Function]}
+      onHide={[Function]}
+      renderBackdrop={[Function]}
+      renderDialog={[Function]}
+      restoreFocus={true}
+      show={true}
+      transition={[Function]}
+    />
+  </Modal>
+</LogInForm>
 `;

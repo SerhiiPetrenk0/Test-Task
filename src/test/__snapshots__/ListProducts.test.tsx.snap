@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListProducts component Snapshot ListProducts component 1`] = `
+<Fragment>
+  <Container
+    fluid={false}
+  >
+    <Styled(Row)>
+      <Styled(Col)
+        key="B0721KZHWT"
+        lg="3"
+        md="4"
+        sm="6"
+      >
+        <Styled(Link)
+          key="B0721KZHWT"
+          to="/Product/B0721KZHWT"
+        >
+          <Styled(Card)>
+            <Styled(CardImg)
+              src="https://m.media-amazon.com/images/I/71FG+7OuuKL._AC_SX466_.jpg"
+              variant="top"
+            />
+            <Styled(CardBody)>
+              <Styled(CardTitle)>
+                Plan Smart
+              </Styled(CardTitle)>
+              <Styled(CardSubtitle)>
+                15.79
+                $
+              </Styled(CardSubtitle)>
+              <Styled(CardText)>
+                A3 Magnetic Dry Wipe Weekly Planner Whiteboard for Fridge - Handy Week Calendar/Organiser by Plan Smart - Bonus: 3 Quality Dry Erase Markers with Eraser Included
+              </Styled(CardText)>
+            </Styled(CardBody)>
+          </Styled(Card)>
+        </Styled(Link)>
+      </Styled(Col)>
+      <Styled(Col)
+        key="B0721KFGWT"
+        lg="3"
+        md="4"
+        sm="6"
+      >
+        <Styled(Link)
+          key="B0721KFGWT"
+          to="/Product/B0721KFGWT"
+        >
+          <Styled(Card)>
+            <Styled(CardImg)
+              src="https://m.media-amazon.com/images/I/71FG+7OuuKL._AC_SX466_.jpg"
+              variant="top"
+            />
+            <Styled(CardBody)>
+              <Styled(CardTitle)>
+                Plan Smart
+              </Styled(CardTitle)>
+              <Styled(CardSubtitle)>
+                15.79
+                $
+              </Styled(CardSubtitle)>
+              <Styled(CardText)>
+                A3 Magnetic Dry Wipe Weekly Planner Whiteboard for Fridge - Handy Week Calendar/Organiser by Plan Smart - Bonus: 3 Quality Dry Erase Markers with Eraser Included
+              </Styled(CardText)>
+            </Styled(CardBody)>
+          </Styled(Card)>
+        </Styled(Link)>
+      </Styled(Col)>
+    </Styled(Row)>
+  </Container>
+</Fragment>
+`;
