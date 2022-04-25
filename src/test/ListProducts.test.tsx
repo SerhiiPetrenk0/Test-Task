@@ -1,13 +1,13 @@
-import React from "react";
-import { configure, mount, shallow } from "enzyme";
+import React from 'react';
+import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
-import { ListProducts } from "../components/ListProducts";
-import toJson from "enzyme-to-json";
-import { MemoryRouter } from "react-router-dom";
+import toJson from 'enzyme-to-json';
 import * as reactRedux from 'react-redux'
 import 'jsdom-global/register';
 
-configure({ adapter: new Adapter() })
+import { ListProducts } from '../components/ListProducts';
+
+configure({ adapter: new Adapter() });
 const initialStore = [
     {
     in_potential_products: false,
@@ -61,27 +61,25 @@ const initialStore = [
     bsr_category: "Home & Kitchen",
     brand: "Plan Smart"
 },
-]
+];
 
 describe('ListProducts component', () => {
+  const myInitialState = initialStore;
+  React.useState = jest.fn().mockReturnValue([myInitialState, {}]);
+  const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
+  const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
+  const dummyDispatch = jest.fn();
 
-const myInitialState = initialStore
-React.useState = jest.fn().mockReturnValue([myInitialState, {}])
+  beforeEach(() => {
+      useSelectorMock.mockClear();
+      useDispatchMock.mockClear();
+    });
 
-    const useSelectorMock = jest.spyOn(reactRedux, 'useSelector')
-    const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch')
-    const dummyDispatch = jest.fn()
-    beforeEach(() => {
-        useSelectorMock.mockClear()
-        useDispatchMock.mockClear()
-      })
+  useSelectorMock.mockReturnValue(initialStore);
+  useDispatchMock.mockReturnValue(dummyDispatch);
 
-    useSelectorMock.mockReturnValue(initialStore)
-    useDispatchMock.mockReturnValue(dummyDispatch)
-
-    it('Snapshot ListProducts component', () => {
-      const wrapper = shallow(<ListProducts />)
-      expect(toJson(wrapper)).toMatchSnapshot();
-    }) 
-  })
-
+  it('Snapshot ListProducts component', () => {
+    const wrapper = shallow(<ListProducts />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+});
