@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StarBar component Snapshot StarBar component count={"0"} 1`] = `
+exports[`StarBar component should match a snapshot (StarBar.test.tsx.snap) count={"0"} 1`] = `
 <styled.div>
   <Styled(BsStarFill)
     color="#a9a9a9"
@@ -30,7 +30,7 @@ exports[`StarBar component Snapshot StarBar component count={"0"} 1`] = `
 </styled.div>
 `;
 
-exports[`StarBar component Snapshot StarBar component count={"4"} 1`] = `
+exports[`StarBar component should match a snapshot (StarBar.test.tsx.snap) count={"4"} 1`] = `
 <styled.div>
   <Styled(BsStarFill)
     color="#FFBA5A"

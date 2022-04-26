@@ -2,29 +2,31 @@ import React from 'react';
 import { configure, mount, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
-import store from '../../redux';
 import * as reactRedux from 'react-redux'
 import 'jsdom-global/register';
 
-import { PostForm } from '../../components/other/PostForm';
+import { PostForm } from '../components/other/PostForm';
+
+import store from '../redux';
 
 configure({ adapter: new Adapter() });
 
 describe('PostForm component', () => {
-  const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
-  const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
   beforeEach(() => {
-      useSelectorMock.mockClear();
-      useDispatchMock.mockClear();
-    });
-  const dummyDispatch = jest.fn();
-  useSelectorMock.mockReturnValue(store);
-  useDispatchMock.mockReturnValue(dummyDispatch);
+    const dummyDispatch = jest.fn();
+    const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
+    const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
+    useSelectorMock.mockReturnValue(store);
+    useDispatchMock.mockReturnValue(dummyDispatch);
+    useSelectorMock.mockClear();
+    useDispatchMock.mockClear();
+  });
 
-  it('Snapshot PostForm component', () => {
+  it('should match a snapshot (PostForm.test.tsx.snap)', () => {
     expect(toJson(mount(<PostForm />))).toMatchSnapshot();
   });
-  it('Clikc Button PostForm', () => {
+  
+  it('should match a snapshot (PostForm.test.tsx.snap) after clikc button', () => {
     const component = shallow(<PostForm />);
     mount(<PostForm />).find('Button').find('button').simulate('click');
     expect(toJson(component)).toMatchSnapshot();

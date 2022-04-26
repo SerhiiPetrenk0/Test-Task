@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LogInForm component Snapshot LogInForm component false 1`] = `
+exports[`LogInForm component should match a snapshot (LogInForm.test.tsx.snap) false 1`] = `
 <Fragment>
   <Modal
     animation={true}
@@ -86,7 +86,7 @@ exports[`LogInForm component Snapshot LogInForm component false 1`] = `
 </Fragment>
 `;
 
-exports[`LogInForm component Snapshot LogInForm component true 1`] = `
+exports[`LogInForm component should match a snapshot (LogInForm.test.tsx.snap) true 1`] = `
 <Fragment>
   <Modal
     animation={true}

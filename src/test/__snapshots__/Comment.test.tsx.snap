@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Comment component Snapshot Comment show 1`] = `
+exports[`Comment component should match a snapshot (Comment.test.tsx.snap) 1`] = `
 <Styled(Card)>
   <CardBody>
     <CardText>

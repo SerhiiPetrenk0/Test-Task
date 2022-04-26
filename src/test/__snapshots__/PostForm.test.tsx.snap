@@ -1,89 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PostForm component Clikc Button PostForm 1`] = `
-<Fragment>
-  <LogInForm
-    handleClose={[Function]}
-    show={false}
-  />
-  <Styled(Container)>
-    <Form
-      onSubmit={[Function]}
-    >
-      <Styled(FormGroup)
-        controlId="exampleForm.ControlInput1"
-      >
-        <Styled(BsStarFill)
-          color="#a9a9a9"
-          key="0"
-          onClick={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          size={24}
-        />
-        <Styled(BsStarFill)
-          color="#a9a9a9"
-          key="1"
-          onClick={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          size={24}
-        />
-        <Styled(BsStarFill)
-          color="#a9a9a9"
-          key="2"
-          onClick={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          size={24}
-        />
-        <Styled(BsStarFill)
-          color="#a9a9a9"
-          key="3"
-          onClick={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          size={24}
-        />
-        <Styled(BsStarFill)
-          color="#a9a9a9"
-          key="4"
-          onClick={[Function]}
-          onMouseLeave={[Function]}
-          onMouseOver={[Function]}
-          size={24}
-        />
-      </Styled(FormGroup)>
-      <Styled(FormGroup)
-        controlId="exampleForm.ControlTextarea1"
-      >
-        <FormLabel
-          column={false}
-          visuallyHidden={false}
-        >
-          comment
-        </FormLabel>
-        <FormControl
-          as="textarea"
-          onChange={[Function]}
-          rows={3}
-          value=""
-        />
-      </Styled(FormGroup)>
-      <Button
-        active={false}
-        disabled={false}
-        type="submit"
-        variant="primary"
-      >
-        Submit
-      </Button>
-    </Form>
-  </Styled(Container)>
-</Fragment>
-`;
-
-exports[`PostForm component Snapshot PostForm component 1`] = `
+exports[`PostForm component should match a snapshot (PostForm.test.tsx.snap) 1`] = `
 <PostForm>
   <LogInForm
     handleClose={[Function]}
@@ -504,4 +421,87 @@ exports[`PostForm component Snapshot PostForm component 1`] = `
     </Container>
   </Styled(Container)>
 </PostForm>
+`;
+
+exports[`PostForm component should match a snapshot (PostForm.test.tsx.snap) after clikc button 1`] = `
+<Fragment>
+  <LogInForm
+    handleClose={[Function]}
+    show={false}
+  />
+  <Styled(Container)>
+    <Form
+      onSubmit={[Function]}
+    >
+      <Styled(FormGroup)
+        controlId="exampleForm.ControlInput1"
+      >
+        <Styled(BsStarFill)
+          color="#a9a9a9"
+          key="0"
+          onClick={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          size={24}
+        />
+        <Styled(BsStarFill)
+          color="#a9a9a9"
+          key="1"
+          onClick={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          size={24}
+        />
+        <Styled(BsStarFill)
+          color="#a9a9a9"
+          key="2"
+          onClick={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          size={24}
+        />
+        <Styled(BsStarFill)
+          color="#a9a9a9"
+          key="3"
+          onClick={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          size={24}
+        />
+        <Styled(BsStarFill)
+          color="#a9a9a9"
+          key="4"
+          onClick={[Function]}
+          onMouseLeave={[Function]}
+          onMouseOver={[Function]}
+          size={24}
+        />
+      </Styled(FormGroup)>
+      <Styled(FormGroup)
+        controlId="exampleForm.ControlTextarea1"
+      >
+        <FormLabel
+          column={false}
+          visuallyHidden={false}
+        >
+          comment
+        </FormLabel>
+        <FormControl
+          as="textarea"
+          onChange={[Function]}
+          rows={3}
+          value=""
+        />
+      </Styled(FormGroup)>
+      <Button
+        active={false}
+        disabled={false}
+        type="submit"
+        variant="primary"
+      >
+        Submit
+      </Button>
+    </Form>
+  </Styled(Container)>
+</Fragment>
 `;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ItemProducts component Snapshot ItemProducts component Loader 1`] = `
+exports[`ItemProducts component should match a snapshot (ItemProducts.test.tsx.snap) 1`] = `
 <Fragment>
   <Styled(Spinner)
     animation="border"
