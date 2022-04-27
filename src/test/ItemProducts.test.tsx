@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
-import * as reactRedux from 'react-redux'
+import * as reactRedux from 'react-redux';
 import 'jsdom-global/register';
 
 import { ItemProducts } from '../components/ItemProducts';

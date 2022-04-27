@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, mount, shallow } from 'enzyme';
+import { configure, mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import 'jsdom-global/register';
@@ -12,8 +12,9 @@ import store from '../redux';
 configure({ adapter: new Adapter() });
 
 describe('LogInForm component', () => {
-  let ShallowLogInForm: (arg0: boolean) => any;
-  let MountLogInForm: (arg0: boolean) => any;
+  let ShallowLogInForm: (arg0: boolean) => ShallowWrapper;
+  let MountLogInForm: (arg0: boolean) => ReactWrapper<{show: boolean}>;
+
   beforeEach(() => {
     ShallowLogInForm = show => shallow(<LogInForm show={show} handleClose={()=>null}/>);
     MountLogInForm = show => mount(<LogInForm show={show} handleClose={()=>null}/>);

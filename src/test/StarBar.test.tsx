@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, mount, shallow } from 'enzyme';
+import { configure, mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import 'jsdom-global/register';
@@ -9,8 +9,8 @@ import { StarBar } from '../components/other/StarBar';
 configure({ adapter: new Adapter() });
 
 describe('StarBar component', () => {
-  let ShallowStarBar: (arg0: string) => any;
-  let MountStarBar: (arg0: string) => any;
+  let ShallowStarBar: (arg0: string) => ShallowWrapper;
+  let MountStarBar: (arg0: string) => ReactWrapper<{count: string}>;
 
   beforeEach(() => {
     ShallowStarBar = item => shallow(<StarBar count={item} />);

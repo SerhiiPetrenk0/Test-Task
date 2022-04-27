@@ -1,5 +1,5 @@
 import React from 'react';
-import { configure, mount, shallow } from 'enzyme';
+import { configure, mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import toJson from 'enzyme-to-json';
 import 'jsdom-global/register';
@@ -12,13 +12,14 @@ import { TypePostForm } from '../interface';
 configure({ adapter: new Adapter() });
 
 describe('Comment component', () => {
-    let ShallowComment: (arg0: { rating: string; comments: string; }) => any;
-    let MountComment: (arg0: { rating: string; comments: string; }) => any;
-
+    let ShallowComment: (arg0: TypePostForm) => ShallowWrapper;
+    let MountComment: (arg0: TypePostForm) => ReactWrapper<{ListComment: {rating: string,comments: string}}>;
+    
     beforeEach(() => {
         ShallowComment = (dataItem: TypePostForm) => shallow(<Comment ListComment={dataItem} />);
         MountComment = (dataItem: TypePostForm) => mount(<Comment ListComment={dataItem} />);
     })
+
     it('should match a snapshot (Comment.test.tsx.snap)', () => {
         const component = ShallowComment(MockCommentItem);
         expect(toJson(component)).toMatchSnapshot();
