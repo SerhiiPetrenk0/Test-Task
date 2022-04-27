@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StarBar component should match a snapshot (StarBar.test.tsx.snap) count={"0"} 1`] = `
+<styled.div>
+  <Styled(BsStarFill)
+    color="#a9a9a9"
+    key="0"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#a9a9a9"
+    key="1"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#a9a9a9"
+    key="2"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#a9a9a9"
+    key="3"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#a9a9a9"
+    key="4"
+    size={20}
+  />
+</styled.div>
+`;
+
+exports[`StarBar component should match a snapshot (StarBar.test.tsx.snap) count={"4"} 1`] = `
+<styled.div>
+  <Styled(BsStarFill)
+    color="#FFBA5A"
+    key="0"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#FFBA5A"
+    key="1"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#FFBA5A"
+    key="2"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#FFBA5A"
+    key="3"
+    size={20}
+  />
+  <Styled(BsStarFill)
+    color="#a9a9a9"
+    key="4"
+    size={20}
+  />
+</styled.div>
+`;
