@@ -9,8 +9,13 @@ import { StarBar } from '../components/other/StarBar';
 configure({ adapter: new Adapter() });
 
 describe('StarBar component', () => {
-    const ShallowStarBar = (item: string) => shallow(<StarBar count={item} />);
-    const MountStarBar = (item: string) => mount(<StarBar count={item} />);
+  let ShallowStarBar: (arg0: string) => any;
+  let MountStarBar: (arg0: string) => any;
+
+  beforeEach(() => {
+    ShallowStarBar = item => shallow(<StarBar count={item} />);
+    MountStarBar = item => mount(<StarBar count={item} />);
+  });
 
   it('should match a snapshot (StarBar.test.tsx.snap) count={"0"}', () => {
     const component = ShallowStarBar('0');
@@ -22,12 +27,12 @@ describe('StarBar component', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
   
-  it('should match to props', () => {
+  it('should have (count) prop', () => {
     const wrapper = MountStarBar('3');
     expect(wrapper.props().count).toBe('3');
   });
   
-  it('should match to stars', () => {
+  it('should have five BsStarFill', () => {
     const wrapper = MountStarBar('3');
     expect(wrapper.find('BsStarFill')).toHaveLength(5);
   });
@@ -35,7 +40,7 @@ describe('StarBar component', () => {
 
 describe('Render color of stars', () => {
   let stars: (string | undefined)[];
-  const MountStarBar = (item: string) => mount(<StarBar count={item} />).find('BsStarFill');
+  let MountStarBar: (arg0: string) => any;
   const mockStars = jest.fn()
     .mockReturnValue('0')
     .mockReturnValueOnce('0')
@@ -50,23 +55,24 @@ describe('Render color of stars', () => {
     .mockReturnValueOnce(['#FFBA5A', '#FFBA5A', '#FFBA5A', '#FFBA5A', '#FFBA5A']);
 
   beforeEach(() => {
+    MountStarBar = item => mount(<StarBar count={item} />).find('BsStarFill');
     let wrapper = MountStarBar(mockStars());
-    stars = wrapper.map((node) => node.prop('color'));
+    stars = wrapper.map((node: { prop: (arg0: string) => any; }) => node.prop('color'));
   });
 
-  it('should match to zero stars', () => {   
+  it('should render zero stars', () => {   
     expect(stars).toEqual(mockStarsResult());
   });
   
-  it('should match to one stars', () => {
+  it('should render one stars', () => {
     expect(stars).toEqual(mockStarsResult());
   });
   
-  it('should match to three stars', () => {
+  it('should render three stars', () => {
     expect(stars).toEqual(mockStarsResult());
   });
   
-  it('should match to five stars', () => {
+  it('should render five stars', () => {
     expect(stars).toEqual(mockStarsResult());
   });
 });

@@ -12,9 +12,11 @@ import store from '../redux';
 configure({ adapter: new Adapter() });
 
 describe('LogInForm component', () => {
-  const ShallowLogInForm = (show: boolean) => shallow(<LogInForm show={show} handleClose={()=>null}/>);
-  const MountLogInForm = (show: boolean) => mount(<LogInForm show={show} handleClose={()=>null}/>);
+  let ShallowLogInForm: (arg0: boolean) => any;
+  let MountLogInForm: (arg0: boolean) => any;
   beforeEach(() => {
+    ShallowLogInForm = show => shallow(<LogInForm show={show} handleClose={()=>null}/>);
+    MountLogInForm = show => mount(<LogInForm show={show} handleClose={()=>null}/>);
     const dummyDispatch = jest.fn();
     const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
     const useDispatchMock = jest.spyOn(reactRedux, 'useDispatch');
@@ -34,7 +36,7 @@ describe('LogInForm component', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
   
-  it('should match to props', () => {
+  it('should have (show) prop', () => {
     const component = MountLogInForm(true);
     expect(component.props().show).toBe(true);
   });

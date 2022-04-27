@@ -12,25 +12,29 @@ import { TypePostForm } from '../interface';
 configure({ adapter: new Adapter() });
 
 describe('Comment component', () => {
-    const ShallowComment = (dataItem: TypePostForm) => shallow(<Comment ListComment={dataItem} />);
-    const MountComment = (dataItem: TypePostForm) => mount(<Comment ListComment={dataItem} />);
-    
+    let ShallowComment: (arg0: { rating: string; comments: string; }) => any;
+    let MountComment: (arg0: { rating: string; comments: string; }) => any;
+
+    beforeEach(() => {
+        ShallowComment = (dataItem: TypePostForm) => shallow(<Comment ListComment={dataItem} />);
+        MountComment = (dataItem: TypePostForm) => mount(<Comment ListComment={dataItem} />);
+    })
     it('should match a snapshot (Comment.test.tsx.snap)', () => {
-        const component = ShallowComment(MockCommentItem)
+        const component = ShallowComment(MockCommentItem);
         expect(toJson(component)).toMatchSnapshot();
     });
     
-    it('should match to props', () => {
+    it('should have ListComment prop', () => {
         const component = MountComment(MockCommentItem);
         expect(component.props().ListComment).toEqual(MockCommentItem);
     });
     
-    it('should match to comment', () => {
+    it('should render comments', () => {
         const component = MountComment(MockCommentItem);
         expect(component.text()).toEqual(MockCommentItem.comments);
     });
     
-    it('should match to rating', () => {
+    it('should render rating stars', () => {
         const component = MountComment(MockCommentItem).find('StarBar');
         expect(component.prop('count')).toEqual(MockCommentItem.rating);
     });
